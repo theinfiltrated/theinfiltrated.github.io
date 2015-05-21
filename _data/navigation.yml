@@ -1,0 +1,11 @@
+# Site navigation links
+
+- title: Tutti i posts
+  url: /posts/
+
+- title: About
+  url: /about/
+
+- title: FAQ
+  url: /faq/
+

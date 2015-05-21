@@ -1,0 +1,326 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane &#8211; Francesco Provino</title>
+<meta name="description" content="Ovvero, come combinare insieme GIT e SSH per rendere (quasi) impossibile perdere un file.">
+<meta name="keywords" content="GIT">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane">
+<meta name="twitter:description" content="Ovvero, come combinare insieme GIT e SSH per rendere (quasi) impossibile perdere un file.">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/velociraptor.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="it_IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane">
+<meta property="og:description" content="Ovvero, come combinare insieme GIT e SSH per rendere (quasi) impossibile perdere un file.">
+<meta property="og:url" content="/git-faidate/">
+<meta property="og:site_name" content="Francesco Provino">
+
+
+
+
+
+<link rel="canonical" href="/git-faidate/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Francesco Provino Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Francesco Provino</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				    
+				        
+				    
+				    <li><a href="/posts/" >Tutti i posts</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="/about/" >About</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="/faq/" >FAQ</a></li>
+				
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+  <div class="image-wrap">
+  <img src=
+    
+      "/images/velociraptor.png"
+    
+  alt="Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane feature image">
+  
+  </div><!-- /.image-wrap -->
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+
+	<img src="/images/wolf.png" class="bio-photo" alt="Francesco Provino bio photo">
+
+
+<!--  <h3 itemprop="name">Francesco Provino</h3> -->
+  <p>I'm a sysadmin, so I solve problems.</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  <a href="http://github.com/theinfiltrated" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      
+        <h1><a href="/git-faidate/" rel="bookmark" title="Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane">Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>In questi giorni c’è stato tanto rumore mediatico riguardo alla violazione di account iCloud contenenti dati personali, e non sono mancate brecce in altri noti sistemi poco tempo addietro.</p>
+
+<p>I sistemi cloud proposti al mercato consumer per l’archiviazione dei dati da qualche altra parte hanno conosciuto una crescita incredibile negli ultimi anni, grazie e sopratutto al mercato mobile che ha posto l’accento sulla possibilità di guasti/furti del dispositivo: <strong>un cellulare è intrinsecamente più rubabile e danneggiabile di un PC desktop</strong>.</p>
+
+<p>Mi sembra incredibile e sopratutto <em>inaccettabile</em> che a 42 (!) anni dalla nascita di <strong><a href="http://en.wikipedia.org/wiki/Source_Code_Control_System">SCCS</a></strong> si possano ancora perdere dei dati per l’ignoranza e/o l’incuria dell’operatore; ho visto parecchi miei conoscenti disperarsi di fronte a files corrotti, modifiche involontarie ma ormai salvate…</p>
+
+<p>Gli attuali sistemi di cloud storage come Dropbox, iCloud, Google drive ed altri (mi riferisco sempre a prodotti consumer) limitano molto la problematica, ma permangono delle criticità.</p>
+
+<h4 id="privacy">Privacy</h4>
+<p>Dove sono i miei dati? Chi ha i miei dati? Qualcuno fa analisi statistica/rivende metadati sui miei files? È possibile che io non possa più fisicamente accedere ai miei dati?</p>
+
+<h4 id="limitazionicosti">Limitazioni/Costi</h4>
+<p>Molti servizi offrono account gratuiti, ma in genere lo spazio disponibile è parecchio limitato… inoltre, vengono imposte delle limitazioni come il numero di repliche, la dimensione massima dei files, la tipologia di client (pensate ad iCloud!), l’accessibilità e la completa gestione gerarchica delle informazioni memorizzate. Esistono servizi enterprise-grade che superano buona parte di queste problematiche, ma i costi sono spesso proibitivi; Amazon S3 in questo è forse il miglior compromesso.</p>
+
+<h4 id="condivisione">Condivisione</h4>
+<p>La possibilità di far partecipare altri utenti al proprio repository di files è spesso parecchio limitata, a meno di non condividere direttamente l’account (ORRORE!). In generale, questi servizi si prestano poco a lavori in team perché non hanno modo di gestire modifiche concorrenti ad uno stesso file, spesso è necessario fare una copia locale delle informazioni interessate e poi processare nuovamente tutto a cose fatte… parecchio inefficiente! Si può fare di meglio.</p>
+
+<h2 id="retrospettiva">Retrospettiva</h2>
+<p>La mia risposta a questi requirements, viene dal passato: GIT, SSH, un po’ di shell aliasing. Strumenti affidabili, collaudati da generazioni di sviluppatori nel tempo, e sopratutto adatti ad un uso professionale… che oggi possiamo utilizzare anche per esigenze personali, dati i giganteschi passi avanti fatti da elaboratori alla portata di tutti. </p>
+
+<p>È molto significativo notare come si spaccino per <em>novità</em> delle conquiste tecnologiche vecchiotte: il “cloud computing” nasce negli anni ‘60 con i mainframe IBM (avete presente <em>tn3270</em> che accede ad ISPF? No?), i sistemi di controllo versione datano prima del 1975, telnet era disponibile già nel ‘68. 
+Oggi è tutto parecchio più comodo, maturo e sicuro; il problema è semmai che l’allargamento della base di utenza anche ad analfabeti (non solo) informatici ha portato ad un deciso livellamento verso il basso delle interfacce utente, che richiedono sempre meno apprendistato e al contempo nascondono la grandissima parte delle tecnologie sottostanti alle finestre sbrilluccicose.</p>
+
+<h2 id="requisiti">Requisiti</h2>
+<p>Parlando di GIT, molti sviluppatori che mi leggeranno lo assoceranno al servizio GitHub; bene, quel che propongo io e di fare quello che fa GitHub lato server: <strong>diventare</strong> GitHub, diventare il servizio, per avere pieno controllo sul posizionamento e la gestione dei nostri dati.</p>
+
+<p>Ecco la lista della spesa:</p>
+
+<ul>
+  <li>Due o più macchine con sistema POSIX o quasi-POSIX (Linux, UNIX, BSD, Mac OS X vanno benissimo); se siete dei temerari, anche Windows con CGYWIN. Nelle macchine dovranno essere installati ssh server e client, oltre ad ovviamente GIT ed una shell POSIX o similare a vostra scelta (io uso ZSH). </li>
+  <li>Una configurazione del network che vi permetta di raggiungere mutuamente le macchine su una porta a vostra scelta, anche attraverso NAT e reindirizzamenti vari va bene. Anzi, è consigliato: cambiate la porta di default per ssh. Fatelo. Punto. Riconfigurate le regole del firewall di conseguenza. </li>
+  <li>La capacità di non cominciare a scrivermi commenti stile “cosa è Linux?”, “non ho mai usato GIT, come si fa un commit? Cosa è un branch?”, “Ma io ho android”, “eh la peppa, io uso razzomissileOS e funziona tutto più meglio assai di quello che scrivi tu”: per informarvi su queste cose ci sono DOC e wiki ufficiali, io sto scrivendo di una metodologia per combinare insieme degli strumenti in un determinato scenario… per creare uno strumento nuovo.</li>
+</ul>
+
+<blockquote>
+  <p>Che lo spirito del RTFM vi accompagni sempre.</p>
+</blockquote>
+
+<h2 id="uno-sguardo-dinsieme">Uno sguardo d’insieme</h2>
+<p>Supposto quindi che sappiate usare GIT e siate anche dei sysadmin UNIX/Linux discretamente in allenamento, passiamo alla descrizione di alto livello di ciò che faremo. 
+Presa una cartella contenente dei files nella nostra macchina, l’idea è che grazie a GIT ogni cambiamento del quale faremo un “commit” verrà registrato come “istantanea” di tutti i file presenti nella cartella (sto semplificando, possiamo aggiungere file che si trovano ovunque ovviamente): questa istantanea sarà anche corredata di un commento esplicativo dei cambiamenti effettuati, così da avere una storyline di tutto il nostro progetto.</p>
+
+<p>Inoltre, ed è questo il pezzo interessante, tutto questo repository contenente sia i file all’ultima versione sia tutte le versioni degli snapshots precedenti all’attuale sia tutti i commenti esplicativi alle varie revisioni, verrano replicati su <em>N</em> macchine remote. Naturalmente, sarà anche possibile clonare tutto il repository da queste macchine per generare sia delle nuove cartelle di lavoro, sia dei nuovi repository master dai quali poter clonare tutto, ecc ecc. E questo, su qualsiasi dispositivo che abbia GIT ed accesso ad uno qualsiasi fra i servers. </p>
+
+<p>La connessione fra server e client, sulla quale opererà GIT, verrà incapsulata dentro il protocollo SSH utilizzato tramite scambio di chiavi asimmetrico di chiavi RSA (niente ID-password, grazie!). E tutta questa procedura verrà automatizzata, in modo da ridursi a un semplice comando, quantomeno per l’upload dei cambiamenti; leggi: “per pararsi il culo da perdite di dati”. 
+Essendo il flusso di dati criptato tramite RSA, a meno di non fare delle fesserie nella config e di cambiare periodicamente le chiavi RSA (la crittografia asimmetrica è soggetta ad attacchi di tipo statistico, se le chiavi si usano a lungo), il sistema è utilizzabile anche da sistemi separati dalla WAN (su internet, ecco). Pensate al computer di casa e quello dell’ufficio, per esempio. O un altro pc da qualche altra parte del mondo, cambia nulla.</p>
+
+<h2 id="dettagli-implementazione">Dettagli implementazione</h2>
+<p>Passiamo alla realizzazione pratica: chiameremo <strong>A</strong>-server la macchina server e <strong>B</strong>-client la macchina client (indicherò con <strong>A</strong>-server e <strong>B</strong>-client anche gli IP/nomi_dns delle macchine): il server conterrà il repo sul quale pusheremo le modifiche, il nostro backup insomma, che potremmo anche clonare in altre macchine; il repository sul server sarà di tipo <strong>bare repo</strong>, cioè conterrà i files codificati nei vari snapshots, ma nessuna cartella di lavoro per l’utente.</p>
+
+<p>Il client, oltre alla propria copia locale del repository, contenente tutto quanto è presente nel <strong>bare repo</strong> (ma nella cartella locale nascosta .git), e ANCHE la cartella di lavoro (che tecnicamente è una copia dell’ultimo snapshot).
+Usiamo repository <strong>bare</strong> sul server per risparmiare spazio manca l’ulteriore clone dell’ultimo snapshot, detto “working tree”. </p>
+
+<h4 id="warning">Warning!</h4>
+<p>Questo non è un howto per utenti della prima ora, quindi molti passaggi che sono dipendenti dall’implementazione e del vostro sistema operativo verranno omessi: descrivo <strong>COSA</strong> fare, ma non <strong>COME</strong> fare; se avete letto una RFC nella vostra vita (o un libro di analisi matematica), non dovreste avere problemi.</p>
+
+<h3 id="ssh-pairing">SSH pairing</h3>
+<p>Per prima cosa, dobbiamo permettere alle due macchine di comunicare fra loro, naturalmente via ssh, senza dover inserire ogni volta username e password: a tale scopo, permetteremo il collegamento tramite pairing di chiavi RSA. Creiamo le chiavi sul client; accediamo ad essa e nel terminale digitiamo:</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">user</span><span class="k">@B-client</span><span class="o">:</span> <span class="nt">ssh-keygen</span> <span class="nt">-t</span> <span class="nt">rsa</span></code></pre></div>
+
+<p>L’output confermerà la creazione. Creiamo quindi la cartella di destinazione sul server</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">user</span><span class="k">@B-client</span><span class="o">:</span> <span class="nt">ssh</span> <span class="nt">user</span><span class="k">@A-server</span> <span class="nt">mkdir</span> <span class="nt">-p</span> <span class="nc">.ssh</span></code></pre></div>
+
+<p>e trasferiamo la chiave appena creata</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">user</span><span class="k">@B-client</span><span class="o">:</span> <span class="nt">cat</span> <span class="nc">.ssh</span><span class="o">/</span><span class="nt">id_rsa</span><span class="nc">.pub</span> <span class="o">|</span> <span class="nt">ssh</span> <span class="nt">user</span><span class="k">@A-server</span> <span class="s1">&#39;cat &gt;&gt; .ssh/authorized_keys&#39;</span></code></pre></div>
+
+<p>assegnando i permessi corretti</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">user</span><span class="k">@B-client</span><span class="o">:</span> <span class="nt">ssh</span> <span class="nt">user</span><span class="k">@A-server</span> <span class="s2">&quot;chmod 700 .ssh; chmod 640 .ssh/authorized_keys&quot;</span></code></pre></div>
+
+<p>verificate che sia possibile effettuare il login senza inserire credenzialia.
+### Creazione dei repo
+Creiamo quindi il repo in una cartella della macchina A-server; dopo esserci loggati in essa e aver creato la cartella /path/to/repo_server/, eseguiamo:</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">user</span><span class="k">@A-server</span><span class="o">:</span> <span class="nt">git</span> <span class="nt">init</span> <span class="nt">--bare</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">repo_server</span><span class="o">/</span></code></pre></div>
+
+<p>Questo sarà il nostro repository remoto. La configurazione sul server, ammesso di aver configurato correttamente ssh, firewall e il resto del networking, finisce qui… quindi, passiamo sul client! Creiamo il repository sul client, esattamente come fatto sul server:</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">user</span><span class="k">@B-client</span><span class="o">:</span> <span class="nt">git</span> <span class="nt">init</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">repo_client</span><span class="o">/</span></code></pre></div>
+
+<p>e adesso, recidiamo il nodo gordiano: aggiungiamo l’origine remota al nostro repository. Ciò risponde alla domanda, “dove verrano mandati dati” da parte del 
+client (che, ricordiamolo, è il sistema sul quale lavoriamo e del quale vogliamo avere un backup distribuito). Notare che nella riga sottostante sto usando una porta diversa dalla standard per ssh:</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">user</span><span class="k">@B-client</span><span class="o">:</span> <span class="nt">git</span> <span class="nt">remote</span> <span class="nt">add</span> <span class="nt">A-server</span> <span class="nt">ssh</span><span class="o">://</span><span class="nt">user</span><span class="k">@A-server</span><span class="nd">:60001</span><span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">repo_server</span><span class="o">/</span></code></pre></div>
+
+<p>Adesso proviamo a creare un file, fare un commit e poi l’output di</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">user</span><span class="k">@B-client</span><span class="o">:</span> <span class="nt">git</span> <span class="nt">push</span> <span class="nt">A-server</span></code></pre></div>
+
+<p>dovrebbe confermare il funzionamento di quanto configurato, trasferendo gli elementi dal repo locale a quello remoto. Anche git status da ora in avanti terrà traccia dello status del repository remoto, segnalandovi quandi commit non avete ancora uploadato ecc. Una ulteriore conferma può essere data provando a clonare il repository remoto in locale:</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">git</span> <span class="nt">clone</span> <span class="nt">user</span><span class="k">@A-server</span><span class="nd">:60001</span><span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">repo_server</span><span class="o">/</span></code></pre></div>
+
+<h3 id="automazione">Automazione</h3>
+<p>Adesso che abbiamo un repository distribuito, possiamo aggiungere altri nodi-server o iniziare a cooperare con altri soggetti (anche non in LAN!) utilizzando il bare-repo come piattaforma per sviluppare qualsiasi progetto; ma sopratutto, possiamo rendere più ergonomico il funzionamento del sistema con dei piccoli aliasing (da mettere nel .bashrc, o ciò che usa la vostra shell in proposito) ad esempio possiamo syncare dei repo multipli remoti e/o locali, reindirizzando l’output dell’avvenuta (o meno) sincronizzazione ad un file di log:</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">alias</span> <span class="nt">syncall</span><span class="o">=</span><span class="err">&#39;</span><span class="nt">git</span> <span class="nt">push</span> <span class="nt">A-server</span> <span class="nt">2</span><span class="o">&gt;&gt;</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">log</span><span class="nc">.txt</span> <span class="o">&amp;&amp;</span> <span class="nt">git</span> <span class="nt">push</span> <span class="nt">B-server</span> <span class="nt">2</span><span class="o">&gt;&gt;</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">log</span><span class="nc">.txt</span> <span class="o">&amp;&amp;</span> <span class="nt">git</span> <span class="nt">push</span> <span class="nt">C-server</span> <span class="nt">2</span><span class="o">&gt;&gt;</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">log</span><span class="nc">.txt</span><span class="err">`</span></code></pre></div>
+
+<p>un’altra cosa interessante, possono essere dei log arricchiti:</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">alias</span> <span class="nt">glog</span><span class="o">=</span><span class="s1">&#39;git log --stat --max-count=10&#39;</span></code></pre></div>
+
+<h2 id="qualche-appunto-pratico-sulla-sicurezza">Qualche appunto pratico sulla sicurezza</h2>
+<p>Cambiate SEMPRE la porta di default di ssh. SEMPRE. È il servizio più attaccato su sistemi UNIX-like. Anche se siete su CentOS e dovrete metter mano alle policy di SELINUX, fatelo. E mettete una porta alta, non standard. Non disattivate SELINUX o il firewall, per carità; sono cose che si configurano una tantum e poi funzionano sempre, mentre un’intrusione potrebbe rovinarvi, per sempre.</p>
+
+<p>Cambiate spesso le chiavi ssh se lavorate sulla rete internet. Ovviamente, non usate la stessa chiave per uploadare la nuova: fatevi un account a parte solo per queste operazioni, che usere solamente per cambio chiavi e compiti amministrativi: per i push in generale passa molta più roba, ed è attaccabile senza esagerate difficoltà se vi sniffano con una certa costanza. Magari un giorno scriverò anche di questo.</p>
+
+<p>Data la delicatezza dello scambio chiavi, sarebbe opportuno eseguire la prima sincronizzazione stando fisicamente collegati (o almeno in LAN) con il server, se il repo contiene dati sensibili.
+Tenere tutto su ambienti virtualizzati con vm generalmente scollegate/spente che si attivano alla bisogna è sempre consigliabile.</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="social-share">
+  <h4>Vuoi condividere questo post? Fallo sul tuo social network preferito!</h4>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=/git-faidate/" class="twitter" title="Condividi su Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=/git-faidate/" class="facebook" title="Condividi su Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=/git-faidate/" class="google-plus" title="Condividi su Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+  </ul>
+</div><!-- /.social-share -->
+
+        <p class="byline"><strong>Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane</strong> è stato pubblicato il <time datetime="2014-09-15T00:00:00+02:00">15-09-2014</time>, l'ultima modifica risale al <time datetime="21-05-2015">21-05-2015</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  
+  <div class="related-articles">
+  <h4>Potrebbero interessarti anche<small class="pull-right"><a href="/posts/">Guarda tutti i posts</a></small></h4>
+    <ul>
+    
+      <li><a href="/enterprise-storage/" title="Sulla mistica dello storage enterprise">Sulla mistica dello storage enterprise</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  
+  <footer>
+    
+
+<span style="float:right;">&copy; 2015 Francesco Provino</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+  
+	        
+
+</body>
+</html>

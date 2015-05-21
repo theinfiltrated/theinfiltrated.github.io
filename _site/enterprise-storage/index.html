@@ -1,0 +1,262 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Sulla mistica dello storage enterprise &#8211; Francesco Provino</title>
+<meta name="description" content="Una delle mie mitologie preferite.">
+<meta name="keywords" content="storage">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Sulla mistica dello storage enterprise">
+<meta name="twitter:description" content="Una delle mie mitologie preferite.">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/storage.jpg">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="it_IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sulla mistica dello storage enterprise">
+<meta property="og:description" content="Una delle mie mitologie preferite.">
+<meta property="og:url" content="/enterprise-storage/">
+<meta property="og:site_name" content="Francesco Provino">
+
+
+
+
+
+<link rel="canonical" href="/enterprise-storage/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Francesco Provino Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Francesco Provino</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				    
+				        
+				    
+				    <li><a href="/posts/" >Tutti i posts</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="/about/" >About</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="/faq/" >FAQ</a></li>
+				
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+  <div class="image-wrap">
+  <img src=
+    
+      "/images/storage.jpg"
+    
+  alt="Sulla mistica dello storage enterprise feature image">
+  
+  </div><!-- /.image-wrap -->
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+
+	<img src="/images/wolf.png" class="bio-photo" alt="Francesco Provino bio photo">
+
+
+<!--  <h3 itemprop="name">Francesco Provino</h3> -->
+  <p>I'm a sysadmin, so I solve problems.</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  <a href="http://github.com/theinfiltrated" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      
+        <h1><a href="/enterprise-storage/" rel="bookmark" title="Sulla mistica dello storage enterprise">Sulla mistica dello storage enterprise</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>Quello dello storage non-consumer è sicuramente uno dei settori dell’IT più floridi per quanto riguarda la nascita di miti e leggende: cosa favorita, oltre dal marketing dei big players, dall’oggettiva complessità di alcuni concetti in gioco e dalla diffusa ignoranza degli uomini-IT in merito.</p>
+
+<p>Vediamo di semplificare un po’, dando delle descrizioni “operative”.</p>
+
+<h2 id="das">DAS</h2>
+<p>Né più né meno dello storage interno del vostro server, ma ospitato in una enclosure esterna; da vedere come una “unità di espansione dischi” o “moltiplicatore di porte SAS esterno”. Generalmente il collegamento alle macchine avviene tramite cavi SAS (gli stessi che collegano i dischi locali), lo storage viene visto esattamente come uno o più dischi interni alla macchina. </p>
+
+<p>Come un qualsiasi controller SAS interno, sono muniti di funzionalità RAID e permettono di esporre partizioni, “array” dell’aggregato di dischi fisici, presentati alla macchina come normalissimi dispositivi a blocchi AKA dischi interni.</p>
+
+<h2 id="san">SAN</h2>
+<p>È qui che si concentrano la maggior parte degli equivoci, quindi diciamolo subito: la SAN non è altro che un DAS esposto ai servers tramite un protocollo di rete (iSCSI, FC, FCoE). Fine.
+Più precisamente la Storage Area Network è un insieme di dispositivi, composta oltre dalla parte al quale viene generalmente attribuito il nome SAN, anche dagli switch e dagli HBA presenti sui servers; è giustappunto un <strong>network</strong>, non un singolo dispositivo.</p>
+
+<p>È quindi possibile fare switching e routing del flusso di dati riguardanti lo storage, oltre a poter utilizzare il tutto in direct-attach similmente al DAS.
+Cosa? Routing dello storage? Pazienza Iago, pazienza.</p>
+
+<h2 id="nas">NAS</h2>
+<p>Questo lo conosciamo bene tutti; un NAS è un fileserver che permette la condivisione dello storage a livello del filesystem, ovvero incorpora tutto lo stack necessario a presentare ai servers files e cartelle. Questo è l’unico dispositivo fra quelli presi in esame a permettere l’accesso allo storage a livello di files e non di blocchi; cioè, non è permesso accedere direttamente all’array di dischi fisici per partizionarlo, formattarlo ecc. Inoltre è l’unico, e sottolineo l’unico, ad incorporare la logica necessaria a gestire l’utilizzo in concorrenza di più macchine ad uno stesso pezzo di storage.</p>
+
+<h2 id="e-allora">E allora?</h2>
+<p>Come, la SAN non serviva per “condividere lo storage” fra più macchine? NO.
+La SAN nasce principalmente per semplificare e rendere più efficiente la gestione dello spazio su disco di installazioni molto dense con parecchi servers, poiché è parecchio più semplice assegnare una LUN ad un server piuttosto versus spostare fisicamente (con ricostruzione array e quant’altro) dischi fra più macchine. In questo modo, è possibile assegnare dinamicamente “dischi” di dimensione variabile al server, senza interventi fisici e interruzioni dell’operatività: il punto che si possa fare su più macchine contemporaneamente, condividendo i dischi fisici, è la ragion
+d’essere della SAN. </p>
+
+<p>In realtà, anche il DAS può fornire funzionalità di questo tipo se le macchine sono poche e abbastanza vicine allo storage, collegando direttamente i servers allo storage.
+Nella caso della SAN, sia essa FC, FCoE o iSCSI, è addirittura possibile collegare lo storage e i servers a degli switch e persino a dei router in configurazioni simili a quelle di una tradizionale LAN, che permettono ad esempio di realizzare configurazioni che hanno particolari caratteristiche di resistenza ai guasti (utilizzando più SAN in replica, ad esempio).</p>
+
+<p>Andiamo oltre adesso; collegate due macchine fisiche alla stessa LUN di una SAN (con dei dati all’interno, magari): vi ritroverete con un filesystem irrimediabilmente corrotto dopo qualche secondo, e la totale distruzione dei dati sarebbe cosa inevitabile dopo pochi tentativi di scrittura.
+Perché? Perché collegare una SAN a due macchine, è come collegare un ideale hard disk fisico con due cavi SAS a diversi computers: alla prima operazione contemporanea, vi ritrovate con un ammasso di bit insignificanti.
+C’è un solo modo per gestire un hard disk condiviso fra due macchine: un filesystem distribuito, detto anche <em>clusterizzato</em>.</p>
+
+<h2 id="san--file-sharing">SAN != File Sharing</h2>
+<p>L’errata considerazione della SAN come “storage di files condiviso” a mio parere nasce dalla grande facilità d’uso di VMFS di VMware, che permette l’uso “trasparente” della SAN, presentando gli array agli utenti proprio come farebbe un NAS, cioè come spazio formattato nel quale è possibile effettuare operazioni in concorrenza sui files. Ma attenzione: come nel caso del NAS, è il filesystem che si occupa di gestire la concorrenza, questo nulla ha a che vedere con le caratteristiche della SAN. Provate a configurare un filesystem clustered come GPFS o GFS, se volete capire profondamente come funzioni la cosa; è sempre bene sporcarsi un po’ le mani per arrivare ad una comprensione piena di certi meccanismi.</p>
+
+<h2 id="performance">Performance</h2>
+<p>La tipologia di storage più performante in assoluto continua ad essere quello interno ai servers, ancor di più con il recente affermarsi di ssd PCI-E e memory-channel. Lo storage di rete, sia
+esso SAN o NAS (e in una certa misura anche il DAS) è comunque limitato dall’overhead del protocollo di rete e dalla sua larghezza di banda.
+L’ultima versione del FC quota 16Gbit/s, appena uscito e dai prezzi folli… Il PCI-E 3.0 16x fa circa 126Gbit/s, oggi, per slot, e sono già uscite le specifiche del 4.0 che avrà esattamente il doppio di banda; cambia poco negli ordini di grandezza se consideriamo iSCSI.
+Il DAS ha generalmente poco overhead, scala in termini di multipli interi di porte SAS a 12Gbit/s.</p>
+
+<h1 id="keep-it-simple-stupid">Keep it simple, stupid!</h1>
+<p>Tutto questo può essere letto come un invito a semplificare il più possibile la topologia dello storage: si guadagna in prestazioni, si risparmia,  si ottiene un’affidabilità maggiore; la crescita di complessità può essere giustificata solamente quando non è assolutamente possibile soddisfare i requisiti progettuali senza aggiungere componenti o layer di astrazione.</p>
+
+<p>In generale, lo storage locale è sempre da preferire a tutte le altre alternative; la “catena cinematica” è la più corta, ciò porta a meno connettori/interfacce che possono guastarsi (o fare contatto intermittente, che è una delle cause più comuni del fail nei raid con parità), minore latenza e
+prestazioni massime, oltre che semplicità di gestione.
+La crescita di dimensioni dello storage può urtare i limiti fisici del singolo server, ed ecco che abbiamo bisogno di un DAS per la scalabilità.
+Gli ambiti dove è opportuno utilizzare NAS e SAN enterprise dopo l’avvento dei meccanismi di replica software block-level e file-level, sono sempre più ristretti; in particolare, nel caso della SAN è necessario avere del personale iniziato ai misteri della condivisione block-level ed una
+infrastruttura abbastanza ridondante, cosa che spesso si traduce in esborsi non indifferenti e difficilmente giustificabili nel mondo delle PMI.</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="social-share">
+  <h4>Vuoi condividere questo post? Fallo sul tuo social network preferito!</h4>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=/enterprise-storage/" class="twitter" title="Condividi su Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=/enterprise-storage/" class="facebook" title="Condividi su Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=/enterprise-storage/" class="google-plus" title="Condividi su Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+  </ul>
+</div><!-- /.social-share -->
+
+        <p class="byline"><strong>Sulla mistica dello storage enterprise</strong> è stato pubblicato il <time datetime="2014-10-27T00:00:00+01:00">27-10-2014</time>, l'ultima modifica risale al <time datetime="21-05-2015">21-05-2015</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  
+  <div class="related-articles">
+  <h4>Potrebbero interessarti anche<small class="pull-right"><a href="/posts/">Guarda tutti i posts</a></small></h4>
+    <ul>
+    
+      <li><a href="/git-faidate/" title="Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane">Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  
+  <footer>
+    
+
+<span style="float:right;">&copy; 2015 Francesco Provino</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+  
+	        
+
+</body>
+</html>

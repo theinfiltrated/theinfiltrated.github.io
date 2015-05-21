@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>/enterprise-storage/</loc>
+    <lastmod>2014-10-27T00:00:00+01:00</lastmod>
+  </url>
+  <url>
+    <loc>/git-faidate/</loc>
+    <lastmod>2014-09-15T00:00:00+02:00</lastmod>
+  </url>
+  <url>
+    <loc>/faq/</loc>
+  </url>
+  <url>
+    <loc>/</loc>
+  </url>
+  <url>
+    <loc>/posts/</loc>
+  </url>
+  <url>
+    <loc>/about/</loc>
+  </url>
+</urlset>

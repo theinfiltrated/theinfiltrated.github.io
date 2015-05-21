@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Francesco Provino</title>
+<generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="/feed.xml" />
+<link rel="alternate" type="text/html" href="" />
+<updated>2015-05-21T21:39:22+02:00</updated>
+<id>/</id>
+<author>
+  <name>Francesco Provino</name>
+  <uri>/</uri>
+  
+</author>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Sulla mistica dello storage enterprise]]></title>
+  <link rel="alternate" type="text/html" href="/enterprise-storage/" />
+  <id>/enterprise-storage</id>
+  <updated>2015-05-21T00:00:00-00:00</updated>
+  <published>2014-10-27T00:00:00+01:00</published>
+  
+  <author>
+    <name>Francesco Provino</name>
+    <uri></uri>
+    
+  </author>
+  <content type="html">
+    &lt;p&gt;Quello dello storage non-consumer è sicuramente uno dei settori dell’IT più floridi per quanto riguarda la nascita di miti e leggende: cosa favorita, oltre dal marketing dei big players, dall’oggettiva complessità di alcuni concetti in gioco e dalla diffusa ignoranza degli uomini-IT in merito.&lt;/p&gt;
+
+&lt;p&gt;Vediamo di semplificare un po’, dando delle descrizioni “operative”.&lt;/p&gt;
+
+&lt;h2 id=&quot;das&quot;&gt;DAS&lt;/h2&gt;
+&lt;p&gt;Né più né meno dello storage interno del vostro server, ma ospitato in una enclosure esterna; da vedere come una “unità di espansione dischi” o “moltiplicatore di porte SAS esterno”. Generalmente il collegamento alle macchine avviene tramite cavi SAS (gli stessi che collegano i dischi locali), lo storage viene visto esattamente come uno o più dischi interni alla macchina. &lt;/p&gt;
+
+&lt;p&gt;Come un qualsiasi controller SAS interno, sono muniti di funzionalità RAID e permettono di esporre partizioni, “array” dell’aggregato di dischi fisici, presentati alla macchina come normalissimi dispositivi a blocchi AKA dischi interni.&lt;/p&gt;
+
+&lt;h2 id=&quot;san&quot;&gt;SAN&lt;/h2&gt;
+&lt;p&gt;È qui che si concentrano la maggior parte degli equivoci, quindi diciamolo subito: la SAN non è altro che un DAS esposto ai servers tramite un protocollo di rete (iSCSI, FC, FCoE). Fine.
+Più precisamente la Storage Area Network è un insieme di dispositivi, composta oltre dalla parte al quale viene generalmente attribuito il nome SAN, anche dagli switch e dagli HBA presenti sui servers; è giustappunto un &lt;strong&gt;network&lt;/strong&gt;, non un singolo dispositivo.&lt;/p&gt;
+
+&lt;p&gt;È quindi possibile fare switching e routing del flusso di dati riguardanti lo storage, oltre a poter utilizzare il tutto in direct-attach similmente al DAS.
+Cosa? Routing dello storage? Pazienza Iago, pazienza.&lt;/p&gt;
+
+&lt;h2 id=&quot;nas&quot;&gt;NAS&lt;/h2&gt;
+&lt;p&gt;Questo lo conosciamo bene tutti; un NAS è un fileserver che permette la condivisione dello storage a livello del filesystem, ovvero incorpora tutto lo stack necessario a presentare ai servers files e cartelle. Questo è l’unico dispositivo fra quelli presi in esame a permettere l’accesso allo storage a livello di files e non di blocchi; cioè, non è permesso accedere direttamente all’array di dischi fisici per partizionarlo, formattarlo ecc. Inoltre è l’unico, e sottolineo l’unico, ad incorporare la logica necessaria a gestire l’utilizzo in concorrenza di più macchine ad uno stesso pezzo di storage.&lt;/p&gt;
+
+&lt;h2 id=&quot;e-allora&quot;&gt;E allora?&lt;/h2&gt;
+&lt;p&gt;Come, la SAN non serviva per “condividere lo storage” fra più macchine? NO.
+La SAN nasce principalmente per semplificare e rendere più efficiente la gestione dello spazio su disco di installazioni molto dense con parecchi servers, poiché è parecchio più semplice assegnare una LUN ad un server piuttosto versus spostare fisicamente (con ricostruzione array e quant’altro) dischi fra più macchine. In questo modo, è possibile assegnare dinamicamente “dischi” di dimensione variabile al server, senza interventi fisici e interruzioni dell’operatività: il punto che si possa fare su più macchine contemporaneamente, condividendo i dischi fisici, è la ragion
+d’essere della SAN. &lt;/p&gt;
+
+&lt;p&gt;In realtà, anche il DAS può fornire funzionalità di questo tipo se le macchine sono poche e abbastanza vicine allo storage, collegando direttamente i servers allo storage.
+Nella caso della SAN, sia essa FC, FCoE o iSCSI, è addirittura possibile collegare lo storage e i servers a degli switch e persino a dei router in configurazioni simili a quelle di una tradizionale LAN, che permettono ad esempio di realizzare configurazioni che hanno particolari caratteristiche di resistenza ai guasti (utilizzando più SAN in replica, ad esempio).&lt;/p&gt;
+
+&lt;p&gt;Andiamo oltre adesso; collegate due macchine fisiche alla stessa LUN di una SAN (con dei dati all’interno, magari): vi ritroverete con un filesystem irrimediabilmente corrotto dopo qualche secondo, e la totale distruzione dei dati sarebbe cosa inevitabile dopo pochi tentativi di scrittura.
+Perché? Perché collegare una SAN a due macchine, è come collegare un ideale hard disk fisico con due cavi SAS a diversi computers: alla prima operazione contemporanea, vi ritrovate con un ammasso di bit insignificanti.
+C’è un solo modo per gestire un hard disk condiviso fra due macchine: un filesystem distribuito, detto anche &lt;em&gt;clusterizzato&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;san--file-sharing&quot;&gt;SAN != File Sharing&lt;/h2&gt;
+&lt;p&gt;L’errata considerazione della SAN come “storage di files condiviso” a mio parere nasce dalla grande facilità d’uso di VMFS di VMware, che permette l’uso “trasparente” della SAN, presentando gli array agli utenti proprio come farebbe un NAS, cioè come spazio formattato nel quale è possibile effettuare operazioni in concorrenza sui files. Ma attenzione: come nel caso del NAS, è il filesystem che si occupa di gestire la concorrenza, questo nulla ha a che vedere con le caratteristiche della SAN. Provate a configurare un filesystem clustered come GPFS o GFS, se volete capire profondamente come funzioni la cosa; è sempre bene sporcarsi un po’ le mani per arrivare ad una comprensione piena di certi meccanismi.&lt;/p&gt;
+
+&lt;h2 id=&quot;performance&quot;&gt;Performance&lt;/h2&gt;
+&lt;p&gt;La tipologia di storage più performante in assoluto continua ad essere quello interno ai servers, ancor di più con il recente affermarsi di ssd PCI-E e memory-channel. Lo storage di rete, sia
+esso SAN o NAS (e in una certa misura anche il DAS) è comunque limitato dall’overhead del protocollo di rete e dalla sua larghezza di banda.
+L’ultima versione del FC quota 16Gbit/s, appena uscito e dai prezzi folli… Il PCI-E 3.0 16x fa circa 126Gbit/s, oggi, per slot, e sono già uscite le specifiche del 4.0 che avrà esattamente il doppio di banda; cambia poco negli ordini di grandezza se consideriamo iSCSI.
+Il DAS ha generalmente poco overhead, scala in termini di multipli interi di porte SAS a 12Gbit/s.&lt;/p&gt;
+
+&lt;h1 id=&quot;keep-it-simple-stupid&quot;&gt;Keep it simple, stupid!&lt;/h1&gt;
+&lt;p&gt;Tutto questo può essere letto come un invito a semplificare il più possibile la topologia dello storage: si guadagna in prestazioni, si risparmia,  si ottiene un’affidabilità maggiore; la crescita di complessità può essere giustificata solamente quando non è assolutamente possibile soddisfare i requisiti progettuali senza aggiungere componenti o layer di astrazione.&lt;/p&gt;
+
+&lt;p&gt;In generale, lo storage locale è sempre da preferire a tutte le altre alternative; la “catena cinematica” è la più corta, ciò porta a meno connettori/interfacce che possono guastarsi (o fare contatto intermittente, che è una delle cause più comuni del fail nei raid con parità), minore latenza e
+prestazioni massime, oltre che semplicità di gestione.
+La crescita di dimensioni dello storage può urtare i limiti fisici del singolo server, ed ecco che abbiamo bisogno di un DAS per la scalabilità.
+Gli ambiti dove è opportuno utilizzare NAS e SAN enterprise dopo l’avvento dei meccanismi di replica software block-level e file-level, sono sempre più ristretti; in particolare, nel caso della SAN è necessario avere del personale iniziato ai misteri della condivisione block-level ed una
+infrastruttura abbastanza ridondante, cosa che spesso si traduce in esborsi non indifferenti e difficilmente giustificabili nel mondo delle PMI.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/enterprise-storage/&quot;&gt;Sulla mistica dello storage enterprise&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;&quot;&gt;Francesco Provino&lt;/a&gt; su October 27, 2014.&lt;/p&gt;
+
+  </content>
+</entry>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane]]></title>
+  <link rel="alternate" type="text/html" href="/git-faidate/" />
+  <id>/git-faidate</id>
+  <updated>2015-05-21T00:00:00-00:00</updated>
+  <published>2014-09-15T00:00:00+02:00</published>
+  
+  <author>
+    <name>Francesco Provino</name>
+    <uri></uri>
+    
+  </author>
+  <content type="html">
+    &lt;p&gt;In questi giorni c’è stato tanto rumore mediatico riguardo alla violazione di account iCloud contenenti dati personali, e non sono mancate brecce in altri noti sistemi poco tempo addietro.&lt;/p&gt;
+
+&lt;p&gt;I sistemi cloud proposti al mercato consumer per l’archiviazione dei dati da qualche altra parte hanno conosciuto una crescita incredibile negli ultimi anni, grazie e sopratutto al mercato mobile che ha posto l’accento sulla possibilità di guasti/furti del dispositivo: &lt;strong&gt;un cellulare è intrinsecamente più rubabile e danneggiabile di un PC desktop&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Mi sembra incredibile e sopratutto &lt;em&gt;inaccettabile&lt;/em&gt; che a 42 (!) anni dalla nascita di &lt;strong&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Source_Code_Control_System&quot;&gt;SCCS&lt;/a&gt;&lt;/strong&gt; si possano ancora perdere dei dati per l’ignoranza e/o l’incuria dell’operatore; ho visto parecchi miei conoscenti disperarsi di fronte a files corrotti, modifiche involontarie ma ormai salvate…&lt;/p&gt;
+
+&lt;p&gt;Gli attuali sistemi di cloud storage come Dropbox, iCloud, Google drive ed altri (mi riferisco sempre a prodotti consumer) limitano molto la problematica, ma permangono delle criticità.&lt;/p&gt;
+
+&lt;h4 id=&quot;privacy&quot;&gt;Privacy&lt;/h4&gt;
+&lt;p&gt;Dove sono i miei dati? Chi ha i miei dati? Qualcuno fa analisi statistica/rivende metadati sui miei files? È possibile che io non possa più fisicamente accedere ai miei dati?&lt;/p&gt;
+
+&lt;h4 id=&quot;limitazionicosti&quot;&gt;Limitazioni/Costi&lt;/h4&gt;
+&lt;p&gt;Molti servizi offrono account gratuiti, ma in genere lo spazio disponibile è parecchio limitato… inoltre, vengono imposte delle limitazioni come il numero di repliche, la dimensione massima dei files, la tipologia di client (pensate ad iCloud!), l’accessibilità e la completa gestione gerarchica delle informazioni memorizzate. Esistono servizi enterprise-grade che superano buona parte di queste problematiche, ma i costi sono spesso proibitivi; Amazon S3 in questo è forse il miglior compromesso.&lt;/p&gt;
+
+&lt;h4 id=&quot;condivisione&quot;&gt;Condivisione&lt;/h4&gt;
+&lt;p&gt;La possibilità di far partecipare altri utenti al proprio repository di files è spesso parecchio limitata, a meno di non condividere direttamente l’account (ORRORE!). In generale, questi servizi si prestano poco a lavori in team perché non hanno modo di gestire modifiche concorrenti ad uno stesso file, spesso è necessario fare una copia locale delle informazioni interessate e poi processare nuovamente tutto a cose fatte… parecchio inefficiente! Si può fare di meglio.&lt;/p&gt;
+
+&lt;h2 id=&quot;retrospettiva&quot;&gt;Retrospettiva&lt;/h2&gt;
+&lt;p&gt;La mia risposta a questi requirements, viene dal passato: GIT, SSH, un po’ di shell aliasing. Strumenti affidabili, collaudati da generazioni di sviluppatori nel tempo, e sopratutto adatti ad un uso professionale… che oggi possiamo utilizzare anche per esigenze personali, dati i giganteschi passi avanti fatti da elaboratori alla portata di tutti. &lt;/p&gt;
+
+&lt;p&gt;È molto significativo notare come si spaccino per &lt;em&gt;novità&lt;/em&gt; delle conquiste tecnologiche vecchiotte: il “cloud computing” nasce negli anni ‘60 con i mainframe IBM (avete presente &lt;em&gt;tn3270&lt;/em&gt; che accede ad ISPF? No?), i sistemi di controllo versione datano prima del 1975, telnet era disponibile già nel ‘68. 
+Oggi è tutto parecchio più comodo, maturo e sicuro; il problema è semmai che l’allargamento della base di utenza anche ad analfabeti (non solo) informatici ha portato ad un deciso livellamento verso il basso delle interfacce utente, che richiedono sempre meno apprendistato e al contempo nascondono la grandissima parte delle tecnologie sottostanti alle finestre sbrilluccicose.&lt;/p&gt;
+
+&lt;h2 id=&quot;requisiti&quot;&gt;Requisiti&lt;/h2&gt;
+&lt;p&gt;Parlando di GIT, molti sviluppatori che mi leggeranno lo assoceranno al servizio GitHub; bene, quel che propongo io e di fare quello che fa GitHub lato server: &lt;strong&gt;diventare&lt;/strong&gt; GitHub, diventare il servizio, per avere pieno controllo sul posizionamento e la gestione dei nostri dati.&lt;/p&gt;
+
+&lt;p&gt;Ecco la lista della spesa:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Due o più macchine con sistema POSIX o quasi-POSIX (Linux, UNIX, BSD, Mac OS X vanno benissimo); se siete dei temerari, anche Windows con CGYWIN. Nelle macchine dovranno essere installati ssh server e client, oltre ad ovviamente GIT ed una shell POSIX o similare a vostra scelta (io uso ZSH). &lt;/li&gt;
+  &lt;li&gt;Una configurazione del network che vi permetta di raggiungere mutuamente le macchine su una porta a vostra scelta, anche attraverso NAT e reindirizzamenti vari va bene. Anzi, è consigliato: cambiate la porta di default per ssh. Fatelo. Punto. Riconfigurate le regole del firewall di conseguenza. &lt;/li&gt;
+  &lt;li&gt;La capacità di non cominciare a scrivermi commenti stile “cosa è Linux?”, “non ho mai usato GIT, come si fa un commit? Cosa è un branch?”, “Ma io ho android”, “eh la peppa, io uso razzomissileOS e funziona tutto più meglio assai di quello che scrivi tu”: per informarvi su queste cose ci sono DOC e wiki ufficiali, io sto scrivendo di una metodologia per combinare insieme degli strumenti in un determinato scenario… per creare uno strumento nuovo.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Che lo spirito del RTFM vi accompagni sempre.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;uno-sguardo-dinsieme&quot;&gt;Uno sguardo d’insieme&lt;/h2&gt;
+&lt;p&gt;Supposto quindi che sappiate usare GIT e siate anche dei sysadmin UNIX/Linux discretamente in allenamento, passiamo alla descrizione di alto livello di ciò che faremo. 
+Presa una cartella contenente dei files nella nostra macchina, l’idea è che grazie a GIT ogni cambiamento del quale faremo un “commit” verrà registrato come “istantanea” di tutti i file presenti nella cartella (sto semplificando, possiamo aggiungere file che si trovano ovunque ovviamente): questa istantanea sarà anche corredata di un commento esplicativo dei cambiamenti effettuati, così da avere una storyline di tutto il nostro progetto.&lt;/p&gt;
+
+&lt;p&gt;Inoltre, ed è questo il pezzo interessante, tutto questo repository contenente sia i file all’ultima versione sia tutte le versioni degli snapshots precedenti all’attuale sia tutti i commenti esplicativi alle varie revisioni, verrano replicati su &lt;em&gt;N&lt;/em&gt; macchine remote. Naturalmente, sarà anche possibile clonare tutto il repository da queste macchine per generare sia delle nuove cartelle di lavoro, sia dei nuovi repository master dai quali poter clonare tutto, ecc ecc. E questo, su qualsiasi dispositivo che abbia GIT ed accesso ad uno qualsiasi fra i servers. &lt;/p&gt;
+
+&lt;p&gt;La connessione fra server e client, sulla quale opererà GIT, verrà incapsulata dentro il protocollo SSH utilizzato tramite scambio di chiavi asimmetrico di chiavi RSA (niente ID-password, grazie!). E tutta questa procedura verrà automatizzata, in modo da ridursi a un semplice comando, quantomeno per l’upload dei cambiamenti; leggi: “per pararsi il culo da perdite di dati”. 
+Essendo il flusso di dati criptato tramite RSA, a meno di non fare delle fesserie nella config e di cambiare periodicamente le chiavi RSA (la crittografia asimmetrica è soggetta ad attacchi di tipo statistico, se le chiavi si usano a lungo), il sistema è utilizzabile anche da sistemi separati dalla WAN (su internet, ecco). Pensate al computer di casa e quello dell’ufficio, per esempio. O un altro pc da qualche altra parte del mondo, cambia nulla.&lt;/p&gt;
+
+&lt;h2 id=&quot;dettagli-implementazione&quot;&gt;Dettagli implementazione&lt;/h2&gt;
+&lt;p&gt;Passiamo alla realizzazione pratica: chiameremo &lt;strong&gt;A&lt;/strong&gt;-server la macchina server e &lt;strong&gt;B&lt;/strong&gt;-client la macchina client (indicherò con &lt;strong&gt;A&lt;/strong&gt;-server e &lt;strong&gt;B&lt;/strong&gt;-client anche gli IP/nomi_dns delle macchine): il server conterrà il repo sul quale pusheremo le modifiche, il nostro backup insomma, che potremmo anche clonare in altre macchine; il repository sul server sarà di tipo &lt;strong&gt;bare repo&lt;/strong&gt;, cioè conterrà i files codificati nei vari snapshots, ma nessuna cartella di lavoro per l’utente.&lt;/p&gt;
+
+&lt;p&gt;Il client, oltre alla propria copia locale del repository, contenente tutto quanto è presente nel &lt;strong&gt;bare repo&lt;/strong&gt; (ma nella cartella locale nascosta .git), e ANCHE la cartella di lavoro (che tecnicamente è una copia dell’ultimo snapshot).
+Usiamo repository &lt;strong&gt;bare&lt;/strong&gt; sul server per risparmiare spazio manca l’ulteriore clone dell’ultimo snapshot, detto “working tree”. &lt;/p&gt;
+
+&lt;h4 id=&quot;warning&quot;&gt;Warning!&lt;/h4&gt;
+&lt;p&gt;Questo non è un howto per utenti della prima ora, quindi molti passaggi che sono dipendenti dall’implementazione e del vostro sistema operativo verranno omessi: descrivo &lt;strong&gt;COSA&lt;/strong&gt; fare, ma non &lt;strong&gt;COME&lt;/strong&gt; fare; se avete letto una RFC nella vostra vita (o un libro di analisi matematica), non dovreste avere problemi.&lt;/p&gt;
+
+&lt;h3 id=&quot;ssh-pairing&quot;&gt;SSH pairing&lt;/h3&gt;
+&lt;p&gt;Per prima cosa, dobbiamo permettere alle due macchine di comunicare fra loro, naturalmente via ssh, senza dover inserire ogni volta username e password: a tale scopo, permetteremo il collegamento tramite pairing di chiavi RSA. Creiamo le chiavi sul client; accediamo ad essa e nel terminale digitiamo:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@B-client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ssh-keygen&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;rsa&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;L’output confermerà la creazione. Creiamo quindi la cartella di destinazione sul server&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@B-client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@A-server&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.ssh&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;e trasferiamo la chiave appena creata&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@B-client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.ssh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;id_rsa&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.pub&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@A-server&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cat &amp;gt;&amp;gt; .ssh/authorized_keys&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;assegnando i permessi corretti&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@B-client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@A-server&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;chmod 700 .ssh; chmod 640 .ssh/authorized_keys&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;verificate che sia possibile effettuare il login senza inserire credenzialia.
+### Creazione dei repo
+Creiamo quindi il repo in una cartella della macchina A-server; dopo esserci loggati in essa e aver creato la cartella /path/to/repo_server/, eseguiamo:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@A-server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--bare&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;repo_server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Questo sarà il nostro repository remoto. La configurazione sul server, ammesso di aver configurato correttamente ssh, firewall e il resto del networking, finisce qui… quindi, passiamo sul client! Creiamo il repository sul client, esattamente come fatto sul server:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@B-client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;repo_client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;e adesso, recidiamo il nodo gordiano: aggiungiamo l’origine remota al nostro repository. Ciò risponde alla domanda, “dove verrano mandati dati” da parte del 
+client (che, ricordiamolo, è il sistema sul quale lavoriamo e del quale vogliamo avere un backup distribuito). Notare che nella riga sottostante sto usando una porta diversa dalla standard per ssh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@B-client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;A-server&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ssh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@A-server&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:60001&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;repo_server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Adesso proviamo a creare un file, fare un commit e poi l’output di&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@B-client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;A-server&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;dovrebbe confermare il funzionamento di quanto configurato, trasferendo gli elementi dal repo locale a quello remoto. Anche git status da ora in avanti terrà traccia dello status del repository remoto, segnalandovi quandi commit non avete ancora uploadato ecc. Una ulteriore conferma può essere data provando a clonare il repository remoto in locale:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@A-server&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:60001&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;repo_server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;automazione&quot;&gt;Automazione&lt;/h3&gt;
+&lt;p&gt;Adesso che abbiamo un repository distribuito, possiamo aggiungere altri nodi-server o iniziare a cooperare con altri soggetti (anche non in LAN!) utilizzando il bare-repo come piattaforma per sviluppare qualsiasi progetto; ma sopratutto, possiamo rendere più ergonomico il funzionamento del sistema con dei piccoli aliasing (da mettere nel .bashrc, o ciò che usa la vostra shell in proposito) ad esempio possiamo syncare dei repo multipli remoti e/o locali, reindirizzando l’output dell’avvenuta (o meno) sincronizzazione ad un file di log:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;alias&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;syncall&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;A-server&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.txt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;B-server&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.txt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;C-server&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.txt&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;un’altra cosa interessante, possono essere dei log arricchiti:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;alias&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;glog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;git log --stat --max-count=10&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;qualche-appunto-pratico-sulla-sicurezza&quot;&gt;Qualche appunto pratico sulla sicurezza&lt;/h2&gt;
+&lt;p&gt;Cambiate SEMPRE la porta di default di ssh. SEMPRE. È il servizio più attaccato su sistemi UNIX-like. Anche se siete su CentOS e dovrete metter mano alle policy di SELINUX, fatelo. E mettete una porta alta, non standard. Non disattivate SELINUX o il firewall, per carità; sono cose che si configurano una tantum e poi funzionano sempre, mentre un’intrusione potrebbe rovinarvi, per sempre.&lt;/p&gt;
+
+&lt;p&gt;Cambiate spesso le chiavi ssh se lavorate sulla rete internet. Ovviamente, non usate la stessa chiave per uploadare la nuova: fatevi un account a parte solo per queste operazioni, che usere solamente per cambio chiavi e compiti amministrativi: per i push in generale passa molta più roba, ed è attaccabile senza esagerate difficoltà se vi sniffano con una certa costanza. Magari un giorno scriverò anche di questo.&lt;/p&gt;
+
+&lt;p&gt;Data la delicatezza dello scambio chiavi, sarebbe opportuno eseguire la prima sincronizzazione stando fisicamente collegati (o almeno in LAN) con il server, se il repo contiene dati sensibili.
+Tenere tutto su ambienti virtualizzati con vm generalmente scollegate/spente che si attivano alla bisogna è sempre consigliabile.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/git-faidate/&quot;&gt;Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;&quot;&gt;Francesco Provino&lt;/a&gt; su September 15, 2014.&lt;/p&gt;
+
+  </content>
+</entry>
+
+</feed>
