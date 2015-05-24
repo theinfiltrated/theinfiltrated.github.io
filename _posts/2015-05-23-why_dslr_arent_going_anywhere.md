@@ -36,21 +36,21 @@ Inoltre, i sensori digitali hanno messo in luce un limite dei grandangolari simm
 Va da sè che parte dell'informazione luminosa si perda sulle facce *non sensibili* al crescere dell'angolo con il quale incide la radiazione. A riguardo, Leica/Dalsa sembrano avere risolto la problematica aggiungendo delle microlenti (stile Fresnel) sulla superficie del sensore, che unite ad un profiling software di ogni lente fanno un ottimo lavoro. Comunque, fino a 20mm gli schemi retrofocus del mondo reflex non si difendono malaccio, basti pensare a quelle meraviglie degli Zeiss ZF.
 
 ## Messa a fuoco
-La precisione del live view confrontato con il mirino ottico senza magnificazioni (0.8x rispetto all'ottica 50mm) è leggermente a favore del mirino digitale, che offre il lusso del di poter cambiare l'ingrandimento alla bisogna, ma mi chiedo se sia realmente possibile focheggiare un 135mm a mano libera guardando i pixel 4:1… Un buon mirino ottico con la giusta magnificazione (io uso il DG-2 su Nikon, prima avevo un KatzEye sulla digitale), può ancora vincere in un contesto di reportage d'azione.
+La precisione del live view confrontato con il mirino ottico senza magnificazioni (0.8x rispetto all'ottica 50mm) è leggermente a favore del mirino digitale, che offre il lusso del di poter cambiare l'ingrandimento alla bisogna; mi chiedo però se sia realmente possibile focheggiare un 135mm a mano libera guardando i pixel 4:1… Un buon mirino ottico con la giusta magnificazione (io uso il DG-2 su Nikon, prima avevo un KatzEye sulla digitale), può ancora vincere in un contesto di reportage d'azione.
 
-Ovviamente, per qualsiasi impiego dove la precisione pixel-level è un requisito, il live view è comunque d'obbligo.
-Tutti i corpi reflex attuali offrono il live view a richiesta, ne segue che per impieghi di tipo **studio** le due piattaforme sono abbastanza interscambibili. Inoltre, avere in più il mirino ottico sempre attivo offre una visione più rilassante, sempre disponibile anche a macchina spenta.
+Ovviamente, per qualsiasi impiego dove la precisione pixel-level è un requisito, il live view è comunque necessario.
+Tutti i corpi reflex attuali offrono il live view a richiesta, ne segue che per impieghi di tipo **studio** le due piattaforme sono abbastanza interscambibili. Inoltre, avere in più il mirino ottico *sempre attivo* offre una visione più rilassante, disponibile anche a macchina spenta.
 
 ## Inerzia
 Ci sono interi standard industriali che si basano sulla baionetta di certe reflex (pensiamo all'attrezzatura scientifica in montatura Nikon), oltre al workflow della quasi totalità dei professionisti sulla piazza.
-Tonnellate di accessori, supporti, un intero ecosistema economico gravita attorno alla tecnologia delle reflex; come per certe tecnologie informatiche… avete presente il COBOL? Dagli anni '80 ad oggi l'avranno dato per morto una ventina di volte; fatevi un giro su LinkedIN e vedete quanto siano richiesti oggi. Il legacy è una brutta bestia, ma è anche dove le aziende investono, è la base sulla quale costruiscono il loro business. 
+Tonnellate di accessori, supporti, un intero ecosistema economico gravita attorno alla tecnologia delle reflex; come per certe tecnologie informatiche… avete presente il COBOL? Dagli anni '80 ad oggi l'avranno dato per morto una ventina di volte; fatevi un giro su LinkedIN e vedete quanto siano richiesti oggi i programmatori COBOL. Il legacy è una brutta bestia, ma è anche dove le aziende investono, è la base sulla quale costruiscono il loro business.
 
 ## Alcune noncuranze
 Non per problemi tecnologici o architetturali, ma ancora il segmento mirrorless presenta delle lacune eccellenti:
 
-* Niente corpi professionali al momento, e sembrano in arrivo rapidamente. Ricordiamo che *no corpi pro* **=>** *no
-  ottiche pro*.
-* Nessun modello attuale ha un sistema di flash ttl maturo, o almeno usabile in contesti produttivi.
-* *User base* piccola, e quindi nessun grosso investimento in massiccio in *R&D*; il mercato langue, non sembrano esserci all'orizzonte grandi novità. Paradossalmente, è molto più vivace il segmento dei dorsi digitali medio formato, che stanno finendo di soppiantare il 4x5.
+* Niente corpi professionali al momento, e non sembrano in arrivo rapidamente. Ricordiamo che *no corpi pro* **=>** *no
+  ottiche pro*. La rigidezza è tutto.
+* Nessun modello attuale ha un sistema di flash TTL maturo, o almeno usabile in contesti produttivi.
+* *User base* piccola, e quindi nessun grosso investimento in massiccio in *R&D*; il mercato langue, non ci sono grandi novità all'orizzonte. Paradossalmente, è molto più vivace il segmento dei dorsi digitali medio formato, che stanno finendo di soppiantare il 4x5.
 
 Quindi, tranquilli: **DSLRs aren't going anywhere**.
