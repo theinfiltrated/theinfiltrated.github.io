@@ -10,13 +10,13 @@ image:
 
 Si parlava ovunque della imminente scomparsa delle DSLR a favore delle mirrorless; passato l'hype (che aveva preso un po' anche me, non lo nego) del mercato e dell'opinionista fotografico medio, possiamo inquadrare meglio il topic dal punto di vista dell'utilizzatore prosumer/professionale.
 A mio parere, le DSLR sono qui per restare. Ancora per molto, molto tempo.
-Ne sono così convinto, che uno dei miei ultimi acquisti è stato proprio un'ottica manual focus per DSLR.
+Ne sono così convinto, che una delle mie ultime acquisizioni è stata proprio un'ottica manual focus per DSLR.
 Proviamo a capire perché.
 
 ## Autonomia
 Una DSLR avrà sempre un'autonomia superiore a parità di sensore rispetto ad una mirrorless, perché può tenere attivo il sensore soltanto poche frazioni di secondo versus tutto il tempo che serve per comporre l'inquadratura e mettere a fuoco. Ovvero, resta con una buona fetta dell'elettronica "spenta" durante buona parte dell'utilizzo; al contrario, in una mirrorless il sensore deve essere sempre acceso per focheggiare, misurare la
 luce ecc.
-Questo inoltre riscalda il sensore, lo rovina prima, crea rumore termico, richiede batteria più grandi.
+Questo inoltre riscalda il sensore, lo rovina prima, crea rumore termico, richiede batterie più grandi.
 
 ## Dimensioni
 Batterie più grandi vogliono dire dimensioni più grandi e potrebbe anche succedere che una DSLR, a parità di autonomia, abbia dimensioni complessive più piccole di una mirrorless (si recupera lo spazio mirabox con il supplemento di batteria). La cosa potrebbe andare bene per macchine poco professionali da 300 scatti a carica, ma per qualsiasi impiego di reportage, il gioco si fa duro…
