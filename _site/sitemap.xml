@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/The_birth_and_death_of_RAID/</loc>
+    <loc>http://francescoprovino.com/The_birth_and_death_of_RAID/</loc>
     <lastmod>2015-06-06T00:00:00+02:00</lastmod>
   </url>
   <url>
-    <loc>/why_dslr_arent_going_anywhere/</loc>
+    <loc>http://francescoprovino.com/why_dslr_arent_going_anywhere/</loc>
     <lastmod>2015-05-23T00:00:00+02:00</lastmod>
   </url>
   <url>
-    <loc>/enterprise-storage/</loc>
+    <loc>http://francescoprovino.com/enterprise-storage/</loc>
     <lastmod>2014-10-27T00:00:00+01:00</lastmod>
   </url>
   <url>
-    <loc>/git-faidate/</loc>
+    <loc>http://francescoprovino.com/git-faidate/</loc>
     <lastmod>2014-09-15T00:00:00+02:00</lastmod>
   </url>
   <url>
-    <loc>/faq/</loc>
+    <loc>http://francescoprovino.com/faq/</loc>
   </url>
   <url>
-    <loc>/</loc>
+    <loc>http://francescoprovino.com/</loc>
   </url>
   <url>
-    <loc>/posts/</loc>
+    <loc>http://francescoprovino.com/posts/</loc>
   </url>
   <url>
-    <loc>/about/</loc>
+    <loc>http://francescoprovino.com/about/</loc>
   </url>
 </urlset>

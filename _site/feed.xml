@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">Francesco Provino</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="/feed.xml" />
-<link rel="alternate" type="text/html" href="" />
-<updated>2015-06-06T14:18:23+02:00</updated>
-<id>/</id>
+<link rel="self" type="application/atom+xml" href="http://francescoprovino.com/feed.xml" />
+<link rel="alternate" type="text/html" href="http://francescoprovino.com" />
+<updated>2015-06-06T18:34:24+02:00</updated>
+<id>http://francescoprovino.com/</id>
 <author>
   <name>Francesco Provino</name>
-  <uri>/</uri>
+  <uri>http://francescoprovino.com/</uri>
   
 </author>
 
@@ -17,13 +17,13 @@
 
 <entry>
   <title type="html"><![CDATA[The birth and death of RAID]]></title>
-  <link rel="alternate" type="text/html" href="/The_birth_and_death_of_RAID/" />
-  <id>/The_birth_and_death_of_RAID</id>
+  <link rel="alternate" type="text/html" href="http://francescoprovino.com/The_birth_and_death_of_RAID/" />
+  <id>http://francescoprovino.com/The_birth_and_death_of_RAID</id>
   <published>2015-06-06T00:00:00+02:00</published>
   <updated>2015-06-06T00:00:00+02:00</updated>
   <author>
     <name>Francesco Provino</name>
-    <uri></uri>
+    <uri>http://francescoprovino.com</uri>
     
   </author>
   <content type="html">
@@ -89,7 +89,7 @@ La battaglia si sta già svolgendo, specialmente fra gli algoritmi per il wear-l
 
 &lt;p&gt;Naturalmente, lo use-case che immagino è quello di workload mission-critical; non certo di quello di consolidamento dello storage nel quale latenza, prestazioni pure e semplicità dell’infrastruttura passano in secondo piano.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/The_birth_and_death_of_RAID/&quot;&gt;The birth and death of RAID&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;&quot;&gt;Francesco Provino&lt;/a&gt; su June 06, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://francescoprovino.com/The_birth_and_death_of_RAID/&quot;&gt;The birth and death of RAID&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;http://francescoprovino.com&quot;&gt;Francesco Provino&lt;/a&gt; su June 06, 2015.&lt;/p&gt;
 
   </content>
 </entry>
@@ -99,13 +99,13 @@ La battaglia si sta già svolgendo, specialmente fra gli algoritmi per il wear-l
 
 <entry>
   <title type="html"><![CDATA[L'insostenibile leggerezza dello specchio]]></title>
-  <link rel="alternate" type="text/html" href="/why_dslr_arent_going_anywhere/" />
-  <id>/why_dslr_arent_going_anywhere</id>
+  <link rel="alternate" type="text/html" href="http://francescoprovino.com/why_dslr_arent_going_anywhere/" />
+  <id>http://francescoprovino.com/why_dslr_arent_going_anywhere</id>
   <published>2015-05-23T00:00:00+02:00</published>
   <updated>2015-05-23T00:00:00+02:00</updated>
   <author>
     <name>Francesco Provino</name>
-    <uri></uri>
+    <uri>http://francescoprovino.com</uri>
     
   </author>
   <content type="html">
@@ -158,7 +158,7 @@ ottiche pro&lt;/em&gt;. La rigidezza è tutto.&lt;/li&gt;
 
 &lt;p&gt;Quindi, tranquilli: &lt;strong&gt;DSLRs aren’t going anywhere&lt;/strong&gt;.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/why_dslr_arent_going_anywhere/&quot;&gt;L&#39;insostenibile leggerezza dello specchio&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;&quot;&gt;Francesco Provino&lt;/a&gt; su May 23, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://francescoprovino.com/why_dslr_arent_going_anywhere/&quot;&gt;L&#39;insostenibile leggerezza dello specchio&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;http://francescoprovino.com&quot;&gt;Francesco Provino&lt;/a&gt; su May 23, 2015.&lt;/p&gt;
 
   </content>
 </entry>
@@ -168,14 +168,14 @@ ottiche pro&lt;/em&gt;. La rigidezza è tutto.&lt;/li&gt;
 
 <entry>
   <title type="html"><![CDATA[Sulla mistica dello storage enterprise]]></title>
-  <link rel="alternate" type="text/html" href="/enterprise-storage/" />
-  <id>/enterprise-storage</id>
+  <link rel="alternate" type="text/html" href="http://francescoprovino.com/enterprise-storage/" />
+  <id>http://francescoprovino.com/enterprise-storage</id>
   <updated>2015-05-21T00:00:00-00:00</updated>
   <published>2014-10-27T00:00:00+01:00</published>
   
   <author>
     <name>Francesco Provino</name>
-    <uri></uri>
+    <uri>http://francescoprovino.com</uri>
     
   </author>
   <content type="html">
@@ -228,7 +228,7 @@ La crescita di dimensioni dello storage può urtare i limiti fisici del singolo 
 Gli ambiti dove è opportuno utilizzare NAS e SAN enterprise dopo l’avvento dei meccanismi di replica software block-level e file-level, sono sempre più ristretti; in particolare, nel caso della SAN è necessario avere del personale iniziato ai misteri della condivisione block-level ed una
 infrastruttura abbastanza ridondante, cosa che spesso si traduce in esborsi non indifferenti e difficilmente giustificabili nel mondo delle PMI.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/enterprise-storage/&quot;&gt;Sulla mistica dello storage enterprise&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;&quot;&gt;Francesco Provino&lt;/a&gt; su October 27, 2014.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://francescoprovino.com/enterprise-storage/&quot;&gt;Sulla mistica dello storage enterprise&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;http://francescoprovino.com&quot;&gt;Francesco Provino&lt;/a&gt; su October 27, 2014.&lt;/p&gt;
 
   </content>
 </entry>
@@ -238,14 +238,14 @@ infrastruttura abbastanza ridondante, cosa che spesso si traduce in esborsi non 
 
 <entry>
   <title type="html"><![CDATA[Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane]]></title>
-  <link rel="alternate" type="text/html" href="/git-faidate/" />
-  <id>/git-faidate</id>
+  <link rel="alternate" type="text/html" href="http://francescoprovino.com/git-faidate/" />
+  <id>http://francescoprovino.com/git-faidate</id>
   <updated>2015-05-21T00:00:00-00:00</updated>
   <published>2014-09-15T00:00:00+02:00</published>
   
   <author>
     <name>Francesco Provino</name>
-    <uri></uri>
+    <uri>http://francescoprovino.com</uri>
     
   </author>
   <content type="html">
@@ -362,7 +362,7 @@ client (che, ricordiamolo, è il sistema sul quale lavoriamo e del quale vogliam
 &lt;p&gt;Data la delicatezza dello scambio chiavi, sarebbe opportuno eseguire la prima sincronizzazione stando fisicamente collegati (o almeno in LAN) con il server, se il repo contiene dati sensibili.
 Tenere tutto su ambienti virtualizzati con vm generalmente scollegate/spente che si attivano alla bisogna è sempre consigliabile.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/git-faidate/&quot;&gt;Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;&quot;&gt;Francesco Provino&lt;/a&gt; su September 15, 2014.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://francescoprovino.com/git-faidate/&quot;&gt;Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;http://francescoprovino.com&quot;&gt;Francesco Provino&lt;/a&gt; su September 15, 2014.&lt;/p&gt;
 
   </content>
 </entry>
