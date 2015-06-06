@@ -1,0 +1,279 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>The birth and death of RAID &#8211; Francesco Provino</title>
+<meta name="description" content="Quando c'era il controller, ci ricostruivano in orario!">
+<meta name="keywords" content="storage">
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="The birth and death of RAID">
+<meta name="twitter:description" content="Quando c'era il controller, ci ricostruivano in orario!">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/storage2.jpg">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="it_IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The birth and death of RAID">
+<meta property="og:description" content="Quando c'era il controller, ci ricostruivano in orario!">
+<meta property="og:url" content="/The_birth_and_death_of_RAID/">
+<meta property="og:site_name" content="Francesco Provino">
+
+
+
+
+
+<link rel="canonical" href="/The_birth_and_death_of_RAID/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Francesco Provino Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Francesco Provino</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				    
+				        
+				    
+				    <li><a href="/posts/" >Tutti i posts</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="/about/" >About</a></li>
+				
+				    
+				        
+				    
+				    <li><a href="/faq/" >FAQ</a></li>
+				
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+  <div class="image-wrap">
+  <img src=
+    
+      "/images/storage2.jpg"
+    
+  alt="The birth and death of RAID feature image">
+  
+  </div><!-- /.image-wrap -->
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+
+	<img src="/images/wolf.png" class="bio-photo" alt="Francesco Provino bio photo">
+
+
+<!--  <h3 itemprop="name">Francesco Provino</h3> -->
+  <p>I'm a sysadmin, so I solve problems.</p>
+  
+  
+  
+  
+  
+  
+  
+  
+  <a href="http://github.com/theinfiltrated" class="author-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      
+        <h1><a href="/The_birth_and_death_of_RAID/" rel="bookmark" title="The birth and death of RAID">The birth and death of RAID</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>Le prime notizie relative al RAID risalgono alla fine degli anni ‘70, quando le macchine UNIX midrange iniziarono a dotarsi di quello che oggi chiameremmo “RAID Software”; prima c’erano solo sistemi per la correzione di errori in memoria, ma di tipo offline.</p>
+
+<h2 id="pubblicit-progresso">Pubblicità progresso</h2>
+<p>Fa sempre bene ricordare come il RAID non sia una soluzione che riguarda la <strong>sicurezza</strong> dei dati: il RAID è una soluzione che riguarda la <em>continuità del servizio</em>. Ovvero, un array RAID permette di <em>continuare a lavorare</em> durante un guasto, ma è implicito che ci si debba immediatamente prodigare per sostituire il componente guasto e non si possa fare a meno di un sistema di backup.</p>
+
+<p>Il RAID non sostituisce il backup, <strong>mai</strong>: sono due sistemi concettualmente ed operativamente diversi; se il RAID è online (cioè utilizzato per l’accesso ai dati di lavoro), e garantisce la continuità del servizio, il backup è invece offline, off-site e fornisce archiviazione, conservazione e sicurezza dei dati.
+Il backup in genere è una soluzione di <em>disaster recovery</em>, il RAID è <em>risk mitigation</em>.</p>
+
+<h2 id="scsi-golden-age">SCSI Golden Age</h2>
+<p>L’utente medio ricorderà probabilmente i controller entry level Adaptec o LSI dei primi anni ‘90, nati principalmente per supplire allo scadente RAID software integrato in Windows… ancora oggi parecchio deficitario rispetto all’esemplare implementazione di <strong>md</strong> su Linux.
+Le tipiche configurazioni prevedevano RAID 5, tre-cinque dischi (rigorosamente <em>dispari</em>, per agevolare il calcolo della parità)… fino all’inizio degli anni 2000, i dischi costavano parecchio e non c’erano alternative in quella fascia di prezzo.</p>
+
+<p>Inoltre, le CPU x86 erano ancora pressapoco dei giocattoli, che mal sopportavano l’overhead dei livelli RAID con parità. I SO avevano ancora una gestione delle code di I/O abbastanza primitiva; l’offloading del calcolo all’ASIC del controller era una manna dal cielo. Da metà degli anni ‘90 il RAID hardware in qualsiasi macchina server viene considerato praticamente obbligatorio, e in una decade diventa <em>commodity</em>.</p>
+
+<p>Ogni array che si rispetti ha i suoi dischi SCSI da 73Gb a 10kRPM, il RAID 5 <em>regge</em> perché il fallimento dovuto ad <a href="http://en.wikipedia.org/wiki/RAID#URE">URE</a> è abbastanza improbabile date le dimensioni degli HDD.
+Da segnalare anche la diffusione nelle motherboard consumer dei cosidetti “<em>FakeRAID</em>”, implementazioni puramente software e supportate quasi unicamente da Windows. Sono generalmente non troppo prestazionali o affidabili, e poco impiegate in ambito enterprise.</p>
+
+<h2 id="per-dipingere-una-parete-grande-ci-vuole-un-pennello-grande">Per dipingere una parete grande, ci vuole un pennello grande</h2>
+<p>Saltiamo avanti di due decenni, siamo negli anni 2010 (chissà che convenzione tireranno fuori riguardo queste decadi, al momento lo scrivo per esteso): i dischi raggiungono capacità di svariati Tb, il costo dello storage è in caduta libera, il fallimento per URE mette fuori dai giochi i livelli RAID con singola parità.</p>
+
+<p>Il RAID 10 viene universalmente adottato in ambito enterprise, affiancato dal RAID 6 o livelli proprietari (aventi comunque almeno doppia parità) per l’archiviazione massiva.
+Assistiamo inoltre ad una ulteriore evoluzione del RAID software: le prestazioni delle CPU rendono <strong>md</strong> più che adeguato per la maggior parte degli array-use_case; inoltre, con la comparsa di <em>ZFS</em> l’utente può usufruire di un filesystem che fa anche RAID (con tripla parità!) e <em>volume management</em> avanzato… permette anche di impostare dispositivi per il caching!
+Ciononostante, il RAID hardware viene ancora preferito in sistemi di produzione per alcune caratteristiche avanzate:</p>
+
+<ul>
+  <li>possibilità di fare caching con analisi <em>euristica</em> dei blocchi più utilizzati su cache molto grandi (anche decine di Gb);</li>
+  <li>blind swap, ovvero sostituzione dei dischi a caldo e ricostruzione dell’array senza nessun altro intervento da parte dell’operatore (spostando la gestione dell’array dal system admin all’operatore hardware);</li>
+  <li>batterie interne, che anche in caso di totale failure dell’alimentazione permettono al controller di terminare le scritture o almeno memorizzarle su dispositivi a stato solido fino al successivo recovery;</li>
+  <li>replica remota su altri controller con latenze molto basse;</li>
+  <li>OS-agnosticità, tanto da poter essere montati su dispositivi come SAN, NAS, DAS ecc.</li>
+</ul>
+
+<p>Il RAID è una pratica ormai assolutamente standardizzata e <strong>implicita</strong> in ogni installazione di un certo livello.</p>
+
+<h2 id="and-thanks-for-all-the-bits">…and thanks for all the bits</h2>
+
+<p>E allora, perché nel titolo parlo di <em>morte</em> del RAID? 
+La domanda da porsi è se il concetto di unità di storage in RAID (per come lo intendiamo oggi, assistito da un controller hardware in particolare) abbia ancora senso con l’avvento degli SSD di nuova generazione, per i seguenti motivi:</p>
+
+<h4 id="prestazioni-del-bus">Prestazioni del bus</h4>
+<p>Sfruttando le connessioni PCI-E (o, ultimamente, gli slot della <a href="http://www-03.ibm.com/systems/x/options/storage/solidstate/exflashdimm/index.html">RAM</a>), gli SSD permettono prestazioni teoricamente equivalenti alle massime ottenibili da un controller RAID, poiché sfruttano lo stesso bus di sistema per comunicare con la cpu.</p>
+
+<h4 id="parallelismoprestazioni">Parallelismo/Prestazioni</h4>
+<p>Le maggiori prestazioni ottenuti dai controllers compiendo I/O in parallelo su dischi rotazionali, oggi sono replicabili leggendo o scrivendo in contemporanea (striping) da un numero <em>praticamente arbitrario</em> di NAND, solamente “limitato dal controller”; questa volta, quello dell’SSD. </p>
+
+<p>Da qui la crescita esplosiva nelle prestazioni degli ultimi SSD messi in commercio, che arrivano a picchi di quasi 4Gb/s (GigaBYTE, non Bit) R/W, con latenze bassissime.
+E se ci sono ancora obiezioni sulla capacità, basta guardare agli <a href="http://www.fusionio.com/data-sheets/iomemory-sx300-atomic-series/">ultimi ritrovati</a>.</p>
+
+<h4 id="parallelismoaffidabilit">Parallelismo/Affidabilità</h4>
+<p>La maggior affidabilità del RAID di dischi rotazionali (RAID 10, ovviamente) è data dal poter eseguire letture e scritture in parallelo (stavolta, cloning) su “pezzi di hardware” distinti, e grazie ad uno strato software di recuperare eventuali fallimenti… esattamente ciò che viene fatto <em>NAND per NAND</em> dagli attuali SSD enterprise, che spesso espongono una capacità effettiva minore (anche del 30%) per potere, grazie alla logica del controller, tenere alcuni settori <em>spare</em> che generalmente vengono utilizzati come <strong>settori di parità</strong> a la RAID con parità (multipla!).</p>
+
+<p>Questa architettura sembra funzionare molto bene per via dell’enorme numero di <em>nodi</em> per stripes e il grande “dominio di parità”; il controller riesce a tenere conto con discreta precisione dello stato di salute delle singole componenti, e generalmente rimpiazza le NAND che si avvicinano a fine vita con quelle precedentemente tenute <em>a riposo</em> prima che ci possa essere un sostanziale degradamento di prestazioni o affidabilità.
+Un esempio di queste funzionalità viene molto chiaramente descritto <a href="http://www.fusionio.com/blog/adaptive-flashback">qui</a>.</p>
+
+<h1 id="so-what">So what?</h1>
+<p>A mio parere, ci avviciniamo ad un cambio di paradigma nel quale il supporto di memorizzazione a stato solido sarà affidabile e prestazionale quanto un controller RAID, rendendone di fatto superfluo l’utilizzo, limitatamente almeno allo storage locale.
+La battaglia si sta già svolgendo, specialmente fra gli algoritmi per il wear-leveling e livelli di RAID-ridondanza “interni”; ne parlano molto gli ultimi papers di IBM sui loro nuovi storage all-flash e altri di Intel e FusionIO.</p>
+
+<p>Costano troppo? Space-wise, ancora per qualche anno. IOPS-wise, c’è già stato il sorpasso. Per fare gli IOPS di un SSD enterprise ci vogliono una batteria di dischi SAS più un controller RAID con una cache mica da ridere… e se non li puoi hostare dentro la macchina singola, ti serve anche una SAN, che presa da sola peggiora l’affidabilità del sistema. Altrimenti ne servono due, con due switches FC, HBA ridondanti, ecc; ed ecco che la soluzione con storage locale torna ad essere concorrenziale sia sul prezzo che nella semplicità di gestione, magari assistita da una replica block-level.</p>
+
+<p>Naturalmente, lo use-case che immagino è quello di workload mission-critical; non certo di quello di consolidamento dello storage nel quale latenza, prestazioni pure e semplicità dell’infrastruttura passano in secondo piano.</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="social-share">
+  <h4>Vuoi condividere questo post? Fallo sul tuo social network preferito!</h4>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=/The_birth_and_death_of_RAID/" class="twitter" title="Condividi su Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=/The_birth_and_death_of_RAID/" class="facebook" title="Condividi su Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=/The_birth_and_death_of_RAID/" class="google-plus" title="Condividi su Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+  </ul>
+</div><!-- /.social-share -->
+
+        <p class="byline"><strong>The birth and death of RAID</strong> è stato pubblicato il <time datetime="2015-06-06T00:00:00+02:00">06-06-2015</time>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  
+  <div class="related-articles">
+  <h4>Potrebbero interessarti anche<small class="pull-right"><a href="/posts/">Guarda tutti i posts</a></small></h4>
+    <ul>
+    
+      <li><a href="/why_dslr_arent_going_anywhere/" title="L'insostenibile leggerezza dello specchio">L'insostenibile leggerezza dello specchio</a></li>
+    
+      <li><a href="/enterprise-storage/" title="Sulla mistica dello storage enterprise">Sulla mistica dello storage enterprise</a></li>
+    
+      <li><a href="/git-faidate/" title="Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane">Sopravvivere al velociraptor che cancella la tua tesi di laurea lanciando banane</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  
+  <footer>
+    
+
+<span style="float:right;">&copy; 2015 Francesco Provino</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+  
+	        
+
+</body>
+</html>

@@ -4,13 +4,95 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-05-24T00:39:03+02:00</updated>
+<updated>2015-06-06T14:18:23+02:00</updated>
 <id>/</id>
 <author>
   <name>Francesco Provino</name>
   <uri>/</uri>
   
 </author>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[The birth and death of RAID]]></title>
+  <link rel="alternate" type="text/html" href="/The_birth_and_death_of_RAID/" />
+  <id>/The_birth_and_death_of_RAID</id>
+  <published>2015-06-06T00:00:00+02:00</published>
+  <updated>2015-06-06T00:00:00+02:00</updated>
+  <author>
+    <name>Francesco Provino</name>
+    <uri></uri>
+    
+  </author>
+  <content type="html">
+    &lt;p&gt;Le prime notizie relative al RAID risalgono alla fine degli anni ‘70, quando le macchine UNIX midrange iniziarono a dotarsi di quello che oggi chiameremmo “RAID Software”; prima c’erano solo sistemi per la correzione di errori in memoria, ma di tipo offline.&lt;/p&gt;
+
+&lt;h2 id=&quot;pubblicit-progresso&quot;&gt;Pubblicità progresso&lt;/h2&gt;
+&lt;p&gt;Fa sempre bene ricordare come il RAID non sia una soluzione che riguarda la &lt;strong&gt;sicurezza&lt;/strong&gt; dei dati: il RAID è una soluzione che riguarda la &lt;em&gt;continuità del servizio&lt;/em&gt;. Ovvero, un array RAID permette di &lt;em&gt;continuare a lavorare&lt;/em&gt; durante un guasto, ma è implicito che ci si debba immediatamente prodigare per sostituire il componente guasto e non si possa fare a meno di un sistema di backup.&lt;/p&gt;
+
+&lt;p&gt;Il RAID non sostituisce il backup, &lt;strong&gt;mai&lt;/strong&gt;: sono due sistemi concettualmente ed operativamente diversi; se il RAID è online (cioè utilizzato per l’accesso ai dati di lavoro), e garantisce la continuità del servizio, il backup è invece offline, off-site e fornisce archiviazione, conservazione e sicurezza dei dati.
+Il backup in genere è una soluzione di &lt;em&gt;disaster recovery&lt;/em&gt;, il RAID è &lt;em&gt;risk mitigation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;scsi-golden-age&quot;&gt;SCSI Golden Age&lt;/h2&gt;
+&lt;p&gt;L’utente medio ricorderà probabilmente i controller entry level Adaptec o LSI dei primi anni ‘90, nati principalmente per supplire allo scadente RAID software integrato in Windows… ancora oggi parecchio deficitario rispetto all’esemplare implementazione di &lt;strong&gt;md&lt;/strong&gt; su Linux.
+Le tipiche configurazioni prevedevano RAID 5, tre-cinque dischi (rigorosamente &lt;em&gt;dispari&lt;/em&gt;, per agevolare il calcolo della parità)… fino all’inizio degli anni 2000, i dischi costavano parecchio e non c’erano alternative in quella fascia di prezzo.&lt;/p&gt;
+
+&lt;p&gt;Inoltre, le CPU x86 erano ancora pressapoco dei giocattoli, che mal sopportavano l’overhead dei livelli RAID con parità. I SO avevano ancora una gestione delle code di I/O abbastanza primitiva; l’offloading del calcolo all’ASIC del controller era una manna dal cielo. Da metà degli anni ‘90 il RAID hardware in qualsiasi macchina server viene considerato praticamente obbligatorio, e in una decade diventa &lt;em&gt;commodity&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ogni array che si rispetti ha i suoi dischi SCSI da 73Gb a 10kRPM, il RAID 5 &lt;em&gt;regge&lt;/em&gt; perché il fallimento dovuto ad &lt;a href=&quot;http://en.wikipedia.org/wiki/RAID#URE&quot;&gt;URE&lt;/a&gt; è abbastanza improbabile date le dimensioni degli HDD.
+Da segnalare anche la diffusione nelle motherboard consumer dei cosidetti “&lt;em&gt;FakeRAID&lt;/em&gt;”, implementazioni puramente software e supportate quasi unicamente da Windows. Sono generalmente non troppo prestazionali o affidabili, e poco impiegate in ambito enterprise.&lt;/p&gt;
+
+&lt;h2 id=&quot;per-dipingere-una-parete-grande-ci-vuole-un-pennello-grande&quot;&gt;Per dipingere una parete grande, ci vuole un pennello grande&lt;/h2&gt;
+&lt;p&gt;Saltiamo avanti di due decenni, siamo negli anni 2010 (chissà che convenzione tireranno fuori riguardo queste decadi, al momento lo scrivo per esteso): i dischi raggiungono capacità di svariati Tb, il costo dello storage è in caduta libera, il fallimento per URE mette fuori dai giochi i livelli RAID con singola parità.&lt;/p&gt;
+
+&lt;p&gt;Il RAID 10 viene universalmente adottato in ambito enterprise, affiancato dal RAID 6 o livelli proprietari (aventi comunque almeno doppia parità) per l’archiviazione massiva.
+Assistiamo inoltre ad una ulteriore evoluzione del RAID software: le prestazioni delle CPU rendono &lt;strong&gt;md&lt;/strong&gt; più che adeguato per la maggior parte degli array-use_case; inoltre, con la comparsa di &lt;em&gt;ZFS&lt;/em&gt; l’utente può usufruire di un filesystem che fa anche RAID (con tripla parità!) e &lt;em&gt;volume management&lt;/em&gt; avanzato… permette anche di impostare dispositivi per il caching!
+Ciononostante, il RAID hardware viene ancora preferito in sistemi di produzione per alcune caratteristiche avanzate:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;possibilità di fare caching con analisi &lt;em&gt;euristica&lt;/em&gt; dei blocchi più utilizzati su cache molto grandi (anche decine di Gb);&lt;/li&gt;
+  &lt;li&gt;blind swap, ovvero sostituzione dei dischi a caldo e ricostruzione dell’array senza nessun altro intervento da parte dell’operatore (spostando la gestione dell’array dal system admin all’operatore hardware);&lt;/li&gt;
+  &lt;li&gt;batterie interne, che anche in caso di totale failure dell’alimentazione permettono al controller di terminare le scritture o almeno memorizzarle su dispositivi a stato solido fino al successivo recovery;&lt;/li&gt;
+  &lt;li&gt;replica remota su altri controller con latenze molto basse;&lt;/li&gt;
+  &lt;li&gt;OS-agnosticità, tanto da poter essere montati su dispositivi come SAN, NAS, DAS ecc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Il RAID è una pratica ormai assolutamente standardizzata e &lt;strong&gt;implicita&lt;/strong&gt; in ogni installazione di un certo livello.&lt;/p&gt;
+
+&lt;h2 id=&quot;and-thanks-for-all-the-bits&quot;&gt;…and thanks for all the bits&lt;/h2&gt;
+
+&lt;p&gt;E allora, perché nel titolo parlo di &lt;em&gt;morte&lt;/em&gt; del RAID? 
+La domanda da porsi è se il concetto di unità di storage in RAID (per come lo intendiamo oggi, assistito da un controller hardware in particolare) abbia ancora senso con l’avvento degli SSD di nuova generazione, per i seguenti motivi:&lt;/p&gt;
+
+&lt;h4 id=&quot;prestazioni-del-bus&quot;&gt;Prestazioni del bus&lt;/h4&gt;
+&lt;p&gt;Sfruttando le connessioni PCI-E (o, ultimamente, gli slot della &lt;a href=&quot;http://www-03.ibm.com/systems/x/options/storage/solidstate/exflashdimm/index.html&quot;&gt;RAM&lt;/a&gt;), gli SSD permettono prestazioni teoricamente equivalenti alle massime ottenibili da un controller RAID, poiché sfruttano lo stesso bus di sistema per comunicare con la cpu.&lt;/p&gt;
+
+&lt;h4 id=&quot;parallelismoprestazioni&quot;&gt;Parallelismo/Prestazioni&lt;/h4&gt;
+&lt;p&gt;Le maggiori prestazioni ottenuti dai controllers compiendo I/O in parallelo su dischi rotazionali, oggi sono replicabili leggendo o scrivendo in contemporanea (striping) da un numero &lt;em&gt;praticamente arbitrario&lt;/em&gt; di NAND, solamente “limitato dal controller”; questa volta, quello dell’SSD. &lt;/p&gt;
+
+&lt;p&gt;Da qui la crescita esplosiva nelle prestazioni degli ultimi SSD messi in commercio, che arrivano a picchi di quasi 4Gb/s (GigaBYTE, non Bit) R/W, con latenze bassissime.
+E se ci sono ancora obiezioni sulla capacità, basta guardare agli &lt;a href=&quot;http://www.fusionio.com/data-sheets/iomemory-sx300-atomic-series/&quot;&gt;ultimi ritrovati&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;parallelismoaffidabilit&quot;&gt;Parallelismo/Affidabilità&lt;/h4&gt;
+&lt;p&gt;La maggior affidabilità del RAID di dischi rotazionali (RAID 10, ovviamente) è data dal poter eseguire letture e scritture in parallelo (stavolta, cloning) su “pezzi di hardware” distinti, e grazie ad uno strato software di recuperare eventuali fallimenti… esattamente ciò che viene fatto &lt;em&gt;NAND per NAND&lt;/em&gt; dagli attuali SSD enterprise, che spesso espongono una capacità effettiva minore (anche del 30%) per potere, grazie alla logica del controller, tenere alcuni settori &lt;em&gt;spare&lt;/em&gt; che generalmente vengono utilizzati come &lt;strong&gt;settori di parità&lt;/strong&gt; a la RAID con parità (multipla!).&lt;/p&gt;
+
+&lt;p&gt;Questa architettura sembra funzionare molto bene per via dell’enorme numero di &lt;em&gt;nodi&lt;/em&gt; per stripes e il grande “dominio di parità”; il controller riesce a tenere conto con discreta precisione dello stato di salute delle singole componenti, e generalmente rimpiazza le NAND che si avvicinano a fine vita con quelle precedentemente tenute &lt;em&gt;a riposo&lt;/em&gt; prima che ci possa essere un sostanziale degradamento di prestazioni o affidabilità.
+Un esempio di queste funzionalità viene molto chiaramente descritto &lt;a href=&quot;http://www.fusionio.com/blog/adaptive-flashback&quot;&gt;qui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;so-what&quot;&gt;So what?&lt;/h1&gt;
+&lt;p&gt;A mio parere, ci avviciniamo ad un cambio di paradigma nel quale il supporto di memorizzazione a stato solido sarà affidabile e prestazionale quanto un controller RAID, rendendone di fatto superfluo l’utilizzo, limitatamente almeno allo storage locale.
+La battaglia si sta già svolgendo, specialmente fra gli algoritmi per il wear-leveling e livelli di RAID-ridondanza “interni”; ne parlano molto gli ultimi papers di IBM sui loro nuovi storage all-flash e altri di Intel e FusionIO.&lt;/p&gt;
+
+&lt;p&gt;Costano troppo? Space-wise, ancora per qualche anno. IOPS-wise, c’è già stato il sorpasso. Per fare gli IOPS di un SSD enterprise ci vogliono una batteria di dischi SAS più un controller RAID con una cache mica da ridere… e se non li puoi hostare dentro la macchina singola, ti serve anche una SAN, che presa da sola peggiora l’affidabilità del sistema. Altrimenti ne servono due, con due switches FC, HBA ridondanti, ecc; ed ecco che la soluzione con storage locale torna ad essere concorrenziale sia sul prezzo che nella semplicità di gestione, magari assistita da una replica block-level.&lt;/p&gt;
+
+&lt;p&gt;Naturalmente, lo use-case che immagino è quello di workload mission-critical; non certo di quello di consolidamento dello storage nel quale latenza, prestazioni pure e semplicità dell’infrastruttura passano in secondo piano.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/The_birth_and_death_of_RAID/&quot;&gt;The birth and death of RAID&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;&quot;&gt;Francesco Provino&lt;/a&gt; su June 06, 2015.&lt;/p&gt;
+
+  </content>
+</entry>
 
 
   
@@ -29,51 +111,49 @@
   <content type="html">
     &lt;p&gt;Si parlava ovunque della imminente scomparsa delle DSLR a favore delle mirrorless; passato l’hype (che aveva preso un po’ anche me, non lo nego) del mercato e dell’opinionista fotografico medio, possiamo inquadrare meglio il topic dal punto di vista dell’utilizzatore prosumer/professionale.
 A mio parere, le DSLR sono qui per restare. Ancora per molto, molto tempo.
-Ne sono così convinto, che uno dei miei ultimi acquisti è stato proprio un’ottica manual focus per DSLR.
+Ne sono così convinto, che una delle mie ultime acquisizioni è stata proprio un’ottica manual focus per DSLR.
 Proviamo a capire perché.&lt;/p&gt;
 
 &lt;h2 id=&quot;autonomia&quot;&gt;Autonomia&lt;/h2&gt;
 &lt;p&gt;Una DSLR avrà sempre un’autonomia superiore a parità di sensore rispetto ad una mirrorless, perché può tenere attivo il sensore soltanto poche frazioni di secondo versus tutto il tempo che serve per comporre l’inquadratura e mettere a fuoco. Ovvero, resta con una buona fetta dell’elettronica “spenta” durante buona parte dell’utilizzo; al contrario, in una mirrorless il sensore deve essere sempre acceso per focheggiare, misurare la
 luce ecc.
-Questo inoltre riscalda il sensore, lo rovina prima, crea rumore termico, richiede batteria più grandi.&lt;/p&gt;
+Questo inoltre riscalda il sensore, lo rovina prima, crea rumore termico, richiede batterie più grandi.&lt;/p&gt;
 
 &lt;h2 id=&quot;dimensioni&quot;&gt;Dimensioni&lt;/h2&gt;
 &lt;p&gt;Batterie più grandi vogliono dire dimensioni più grandi e potrebbe anche succedere che una DSLR, a parità di autonomia, abbia dimensioni complessive più piccole di una mirrorless (si recupera lo spazio mirabox con il supplemento di batteria). La cosa potrebbe andare bene per macchine poco professionali da 300 scatti a carica, ma per qualsiasi impiego di reportage, il gioco si fa duro…&lt;/p&gt;
 
 &lt;p&gt;Non dimentichiamo inoltre che le dimensioni complessive sono influenzate anche dai comandi: a parità di
-numero di ghiere e pulsanti, la cui numerosità e dimensionamento è dettata da esigenze operative fisiologiche precise, non vedo particolari vantaggi dimensionali delle mirrorless su un corpo macchina professionale.
-Inutile girarci attorno, ma un corpo professionale &lt;strong&gt;deve&lt;/strong&gt; avere delle dimensioni simili alle attuali ammiraglie Nikon e Canon (D4s e 1Ds) per consentire una impugnatura salda e comoda anche in posizione verticale anche con ottiche voluminose e pesanti.&lt;/p&gt;
+numero di ghiere e pulsanti, la cui numerosità e dimensionamento è dettata da esigenze operative e fisiologiche precise, non vedo particolari vantaggi dimensionali delle mirrorless su un corpo macchina professionale.
+Inutile girarci attorno, ma un corpo PRO &lt;strong&gt;deve&lt;/strong&gt; avere delle dimensioni simili alle attuali ammiraglie Nikon e Canon (D4s e 1Dx) per consentire una impugnatura salda e comoda anche in posizione verticale e con ottiche voluminose e pesanti.&lt;/p&gt;
 
 &lt;h2 id=&quot;corredo&quot;&gt;Corredo&lt;/h2&gt;
-&lt;p&gt;Bisogna inoltre considerare che il corpo macchina è spesso una componente dimensionalmente minoritaria rispetto a tutto il resto dell’attrezzatura professionale, pensiamo a luci ed ottiche… spesso questo “&lt;em&gt;schiacciante&lt;/em&gt;” vantaggio a favore delle mirrorless è stato eccessivamente enfatizzato dal marketing, ma non dimentichiamo che esistono delle motivazioni ottiche per le quali un 300 f2.8 non può essere parecchio più piccolo degli attuali.&lt;/p&gt;
+&lt;p&gt;Bisogna considerare che il corpo macchina è spesso una componente dimensionalmente minoritaria rispetto a tutto il resto dell’attrezzatura professionale, pensiamo a luci ed ottiche… spesso questo “&lt;em&gt;schiacciante&lt;/em&gt;” vantaggio a favore delle mirrorless è stato eccessivamente enfatizzato dal marketing, ma non dimentichiamo che esistono delle precise motivazioni ottiche per le quali un 300 f2.8 non può essere parecchio più piccolo degli attuali.&lt;/p&gt;
 
 &lt;h2 id=&quot;qualit-delle-ottiche&quot;&gt;Qualità delle ottiche&lt;/h2&gt;
-&lt;p&gt;Esistono vantaggi reali nell’eliminare il box specchio dal punto di vista del design ottico, sopratutto nel design di ottiche grandangolari. La loro focale infatti spesso è minore delle dimensioni fisiche occupate dallo specchio, ovvero dovremmo ritrovarci con il nocciolo ottico &lt;strong&gt;dentro&lt;/strong&gt; lo specchio… la cosa viene risolta (vado molto a spanne) disegnando un grandongolare standard e aggiungendogli un “telescopio” che permette la corretta formazione dell’immagine sul sensore anche se &lt;strong&gt;tutta&lt;/strong&gt; l’ottica dista dal sensore parecchio di più della distanza focale. Questo vantaggio esiste solamente per focali dai 50mm in giù; già sopra i 35mm all’incirca, (lo spazio retrofocale occupato dallo specchio) gli schemi ottici sono
-abbastanza equivalenti. &lt;/p&gt;
+&lt;p&gt;Esistono vantaggi reali nell’eliminare il box specchio dal punto di vista del design ottico, sopratutto nel design di ottiche grandangolari. La loro focale infatti spesso è minore delle dimensioni fisiche occupate dallo specchio; ovvero, dovremmo ritrovarci con il nocciolo ottico &lt;strong&gt;dentro&lt;/strong&gt; lo specchio… la cosa viene risolta (vado molto a spanne) disegnando un grandongolare standard e aggiungendo un “telescopio” che permette la corretta formazione dell’immagine sul sensore anche se &lt;strong&gt;tutta&lt;/strong&gt; l’ottica dista dal sensore parecchio più della distanza focale. Questo vantaggio esiste solamente per focali dai 50mm in giù; già sopra i 35mm all’incirca, (lo spazio retrofocale occupato dallo specchio) gli schemi ottici sono abbastanza equivalenti.&lt;/p&gt;
 
-&lt;p&gt;Inoltre, i sensori digitali hanno messo in luce un limite dei grandangolari simmetrici: per ovvie motivazioni ottiche, i raggi ai bordi del circolo di copertura arrivano &lt;em&gt;parecchio&lt;/em&gt; inclinati sul sensore. Sembrano esserci
-problemi con CCD e CMOS rispetto alla pellicola: se quest’ultima offriva una superficie sensibile praticamente piatta (anche se sul colore avremmo potuto vedere qualche shift dato dalla profondità dei layers), i sensori digitali possiamo immaginarceli con i pixel formati come da scatole quadrate senza una faccia dalla quale entra la luce, e la superficie sensibile sulla faccia opposta. &lt;/p&gt;
+&lt;p&gt;Inoltre, i sensori digitali hanno messo in luce un limite dei grandangolari simmetrici: per ovvie motivazioni ottiche, i raggi ai bordi del circolo di copertura arrivano &lt;em&gt;parecchio&lt;/em&gt; inclinati sul sensore. Sembrano esserci problemi con CCD e CMOS rispetto alla pellicola: se quest’ultima offriva una superficie sensibile praticamente piatta (anche se sul colore avremmo potuto vedere qualche shift dato dalla profondità dei layers), i sensori digitali possiamo immaginarli con pixel formati da scatole quadrate senza una faccia (dalla quale entra la luce) e la superficie sensibile sulla faccia opposta.&lt;/p&gt;
 
-&lt;p&gt;Va da sè che parte dell’informazione luminosa si perda sulle facce &lt;em&gt;non sensibili&lt;/em&gt; al crescere dell’angolo con il quale incide la radiazione. A riguardo, Leica/Dalsa sembrano avere risolto aggiungendo delle microlenti (stile Fresnel) sulla superficie del sensore che unite ad un profiling software di ogni lente sembrano fare un ottimo lavoro. Comunque, fino a 20mm gli schemi retrofocus del mondo reflex non si difendono malaccio, basti pensare quelle meraviglie degli Zeiss ZF.&lt;/p&gt;
+&lt;p&gt;Va da sè che parte dell’informazione luminosa si perda sulle facce &lt;em&gt;non sensibili&lt;/em&gt; al crescere dell’angolo con il quale incide la radiazione. A riguardo, Leica/Dalsa sembrano avere risolto la problematica aggiungendo delle microlenti (stile Fresnel) sulla superficie del sensore, che unite ad un profiling software di ogni lente fanno un ottimo lavoro. Comunque, fino a 20mm gli schemi retrofocus del mondo reflex non si difendono malaccio, basti pensare a quelle meraviglie degli Zeiss ZF.&lt;/p&gt;
 
 &lt;h2 id=&quot;messa-a-fuoco&quot;&gt;Messa a fuoco&lt;/h2&gt;
-&lt;p&gt;La precisione del live view confrontato con il mirino ottico senza magnificazioni (0.8x rispetto all’ottica 50mm) è leggermente a favore del mirino digitale, che offre il lusso del di poter cambiare l’ingrandimento alla bisogna, ma mi chiedo se sia realmente possibile focheggiare un 135mm a mano libera guardando i pixel 4:1… Un buon mirino ottico con la giusta magnificazione (io uso il DG-2 su Nikon, prima avevo un KatzEye sulla digitale), può ancora vincere in un contesto di reportage d’azione.&lt;/p&gt;
+&lt;p&gt;La precisione del live view confrontato con il mirino ottico senza magnificazioni (0.8x rispetto all’ottica 50mm) è leggermente a favore del mirino digitale, che offre il lusso del di poter cambiare l’ingrandimento alla bisogna; mi chiedo però se sia realmente possibile focheggiare un 135mm a mano libera guardando i pixel 4:1… Un buon mirino ottico con la giusta magnificazione (io uso il DG-2 su Nikon, prima avevo un KatzEye sulla digitale), può ancora vincere in un contesto di reportage d’azione.&lt;/p&gt;
 
-&lt;p&gt;Ovviamente, per qualsiasi impiego dove la precisione pixel-level è un requisito, il live view è comunque d’obbligo.
-Tutti i corpi reflex attuali offrono il live view a richiesta, ne segue che per impieghi di tipo &lt;strong&gt;studio&lt;/strong&gt; le due piattaforme sono abbastanza interscambibili. Inoltre, avere in più il mirino ottico sempre attivo offre una visione più rilassante, sempre disponibile anche a macchina spenta.&lt;/p&gt;
+&lt;p&gt;Ovviamente, per qualsiasi impiego dove la precisione pixel-level è un requisito, il live view è comunque necessario.
+Tutti i corpi reflex attuali offrono il live view a richiesta, ne segue che per impieghi di tipo &lt;strong&gt;studio&lt;/strong&gt; le due piattaforme sono abbastanza interscambibili. Inoltre, avere in più il mirino ottico &lt;em&gt;sempre attivo&lt;/em&gt; offre una visione più rilassante, disponibile anche a macchina spenta.&lt;/p&gt;
 
 &lt;h2 id=&quot;inerzia&quot;&gt;Inerzia&lt;/h2&gt;
 &lt;p&gt;Ci sono interi standard industriali che si basano sulla baionetta di certe reflex (pensiamo all’attrezzatura scientifica in montatura Nikon), oltre al workflow della quasi totalità dei professionisti sulla piazza.
-Tonnellate di accessori, supporti, un intero ecosistema economico gravita attorno alla tecnologia delle reflex; come per certe tecnologie informatiche… avete presente il COBOL? Dagli anni ‘80 ad oggi l’avranno dato per morto una ventina di volte; fatevi un giro su LinkedIN e vedete quanto siano richiesti oggi. Il legacy è una brutta bestia, ma è anche dove le aziende investono, è la base sulla quale costruiscono il loro business. &lt;/p&gt;
+Tonnellate di accessori, supporti, un intero ecosistema economico gravita attorno alla tecnologia delle reflex; come per certe tecnologie informatiche… avete presente il COBOL? Dagli anni ‘80 ad oggi l’avranno dato per morto una ventina di volte; fatevi un giro su LinkedIN e vedete quanto siano richiesti oggi i programmatori COBOL. Il legacy è una brutta bestia, ma è anche dove le aziende investono, è la base sulla quale costruiscono il loro business.&lt;/p&gt;
 
 &lt;h2 id=&quot;alcune-noncuranze&quot;&gt;Alcune noncuranze&lt;/h2&gt;
 &lt;p&gt;Non per problemi tecnologici o architetturali, ma ancora il segmento mirrorless presenta delle lacune eccellenti:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Niente corpi professionali al momento, e sembrano in arrivo rapidamente. Ricordiamo che &lt;em&gt;no corpi pro&lt;/em&gt; &lt;strong&gt;=&amp;gt;&lt;/strong&gt; &lt;em&gt;no
-ottiche pro&lt;/em&gt;.&lt;/li&gt;
-  &lt;li&gt;Nessun modello attuale ha un sistema di flash ttl maturo, o almeno usabile in contesti produttivi.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;User base&lt;/em&gt; piccola, e quindi nessun grosso investimento in massiccio in &lt;em&gt;R&amp;amp;D&lt;/em&gt;; il mercato langue, non sembrano esserci all’orizzonte grandi novità. Paradossalmente, è molto più vivace il segmento dei dorsi digitali medio formato, che stanno finendo di soppiantare il 4x5.&lt;/li&gt;
+  &lt;li&gt;Niente corpi professionali al momento, e non sembrano in arrivo rapidamente. Ricordiamo che &lt;em&gt;no corpi pro&lt;/em&gt; &lt;strong&gt;=&amp;gt;&lt;/strong&gt; &lt;em&gt;no
+ottiche pro&lt;/em&gt;. La rigidezza è tutto.&lt;/li&gt;
+  &lt;li&gt;Nessun modello attuale ha un sistema di flash TTL maturo, o almeno usabile in contesti produttivi.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;User base&lt;/em&gt; piccola, e quindi nessun grosso investimento in massiccio in &lt;em&gt;R&amp;amp;D&lt;/em&gt;; il mercato langue, non ci sono grandi novità all’orizzonte. Paradossalmente, è molto più vivace il segmento dei dorsi digitali medio formato, che stanno finendo di soppiantare il 4x5.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Quindi, tranquilli: &lt;strong&gt;DSLRs aren’t going anywhere&lt;/strong&gt;.&lt;/p&gt;
