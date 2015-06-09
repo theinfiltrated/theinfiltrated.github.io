@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://francescoprovino.com/feed.xml" />
 <link rel="alternate" type="text/html" href="http://francescoprovino.com" />
-<updated>2015-06-09T20:20:56+02:00</updated>
+<updated>2015-06-09T20:21:01+02:00</updated>
 <id>http://francescoprovino.com/</id>
 <author>
   <name>Francesco Provino</name>
@@ -62,8 +62,7 @@ Alla bisogna, si fornisce anche la possibilità di collegarsi a delle VM Windows
 &lt;p&gt;È antiquato, sembra un ritorno ai vecchi AS400? Sì, esatto. &lt;strong&gt;CHE DIFATTI, FUNZIONAVANO.&lt;/strong&gt;
 Vedo ovunque un grande bisogno di ritorno a soluzioni più “commensurabili”, comprensibili, architetturalmente meno articolate, e che nascondano meno la loro complessità; in una parola: &lt;em&gt;semplici&lt;/em&gt; anche se non necessariamente &lt;em&gt;facili&lt;/em&gt;… dove &lt;em&gt;facile&lt;/em&gt; che è un concetto relativo: vi sembra “facile” utilizzare Metro per task avanzati o metter su un cluster di active directory perché il database potrebbe corrompersi random in qualsiasi momento? Ma, &lt;strong&gt;sopratutto&lt;/strong&gt; dover dialogare con sistemi che dipendono in modo assolutamente vincolante dal buon funzionamento di DNS&amp;amp;co. (cosa abbastanza fragile), la cui gestione viene spesso affidata al primo santone di tutto che “sa installare Windows”, e questo anche per installazioni da una decina di postazioni?&lt;/p&gt;
 
-&lt;p&gt;Non credo che ci sia mai stato un momento più propizio per l’ingresso di una soluzione di questo tipo (Linux desktop e server, tutto virtualizzato a la “mainframe x86”), dati i pesanti colpi accusati da Microsoft ed un drammatico calo dei costi di storage e server di bassa gamma, insieme alla sostanziale scomparsa delle soluzioni prima denominate &lt;em&gt;midrange&lt;/em&gt; da questa fascia di mercato (ex system P, system i, AS400 ecc.).
-C’è parecchia fame a riguardo.&lt;/p&gt;
+&lt;p&gt;Non credo che ci sia mai stato un momento più propizio per l’ingresso di una soluzione di questo tipo (Linux desktop e server, tutto virtualizzato a la “mainframe x86”), dati i pesanti colpi accusati da Microsoft ed un drammatico calo dei costi di storage e server di bassa gamma, insieme alla sostanziale scomparsa delle soluzioni prima denominate &lt;em&gt;midrange&lt;/em&gt; da questa fascia di mercato (ex system P, system i, AS400 ecc.); manca solamente un’azienda agile, che abbia voglia di fare il primo passo.&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;http://francescoprovino.com/Olivetti/&quot;&gt;La grande O nel cielo&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;http://francescoprovino.com&quot;&gt;Francesco Provino&lt;/a&gt; su June 09, 2015.&lt;/p&gt;
 
