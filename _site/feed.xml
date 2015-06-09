@@ -4,13 +4,66 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://francescoprovino.com/feed.xml" />
 <link rel="alternate" type="text/html" href="http://francescoprovino.com" />
-<updated>2015-06-06T18:34:24+02:00</updated>
+<updated>2015-06-09T20:00:50+02:00</updated>
 <id>http://francescoprovino.com/</id>
 <author>
   <name>Francesco Provino</name>
   <uri>http://francescoprovino.com/</uri>
   
 </author>
+
+
+  
+
+<entry>
+  <title type="html"><![CDATA[La grande O nel cielo]]></title>
+  <link rel="alternate" type="text/html" href="http://francescoprovino.com/Olivetti/" />
+  <id>http://francescoprovino.com/Olivetti</id>
+  <published>2015-06-09T00:00:00+02:00</published>
+  <updated>2015-06-09T00:00:00+02:00</updated>
+  <author>
+    <name>Francesco Provino</name>
+    <uri>http://francescoprovino.com</uri>
+    
+  </author>
+  <content type="html">
+    &lt;p&gt;Francamente? Io un’idea &lt;a href=&quot;http://www.ilfattoquotidiano.it/2015/06/08/olivetti-30-milioni-di-perdite-lanno-da-10-anni-poche-idee-e-tanti-esuberi/1748088/&quot;&gt;a riguardo&lt;/a&gt; cel’avrei.&lt;/p&gt;
+
+&lt;p&gt;Con quello che è rimasto dell’azienda, assumete una trentina di programmatori/sistemisti/hardwaristi Linux; si trovano abbastanza facilmente, basta fare screening fra i certificati Red Hat.
+Fategli sviluppare un sistema centralizzato “&lt;em&gt;All inclusive&lt;/em&gt;” per le PMI, dalla ricezione mail alla bolla da appiccicare sul pacco, che giri tutto su &lt;strong&gt;un&lt;/strong&gt; server (o due, DRBD + clustering applicativo), basato su Linux/KVM; lo stack è già tutto esistente, dall’hypervisor alle applicaizioni client, basta &lt;em&gt;integrarlo&lt;/em&gt; e farne un prodotto &lt;strong&gt;fico&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sfruttate quel cazzo di nome, fate le porte dell’armadio con un grande &lt;strong&gt;O&lt;/strong&gt; verde a triangolini, scrivetegli sotto &lt;em&gt;POWERED BY LINUX&lt;/em&gt; e pubblicizzatelo con delle rassicuranti schermate che non dicano “Cloud, 2.0, IoT”, ma che facciano vedere un sistema con le finestre e i menù come dio comanda, ché la gente si è rotta delle ultime schizofrenie tablet-style Microsoft (infatti compra Apple) e nella “flessibilità degli applicativi pensati anche per il mobile” ed altra fuffa mediatica crede sempre meno.&lt;/p&gt;
+
+&lt;h3 id=&quot;cosa-mettiamo-stasera-nel-minestrone&quot;&gt;Cosa mettiamo stasera nel minestrone.&lt;/h3&gt;
+&lt;p&gt;Virtualizzato, potente, veloce (già quattro HDD e una buona cache sanno il fatto loro, per 20 dipendenti), che può crescere insieme all’azienda; ci vuol nulla, deployando tutto come VM.
+Dentro mettetegli un fileserver, un mailserver, un proxy squid con che lavora in whitelisting per alcuni e in blacklisting per altri (ah, già vedo i sorrisi del CEO!), ammenicoli per la VPN/firewall, un sistema ERP come OpenBravo. Fateli testare ed integrare bene almeno un annetto… con tutto l’hardware che venderete al corredo, sopratutto il sottosistema di stampa e i POS; lì, avete tonnellate di know-how.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Validate&lt;/strong&gt; le ultime incarnazioni di LibreOffice, magari anche con plugin proprietari per la conversione da ooXML (esistono eccome, e funzionano bene!), al resto pensa il motore LaTeX che gestisce l’output dall’ERP; niente rocket science, si tratta di scrivere un paio di parser da applicare a dei modelli, eventualmente personalizzabili.
+Assomiglia molto al lavoro di integration che spesso viene demandato ai sysadmin o ai dbadmin.&lt;/p&gt;
+
+&lt;h3 id=&quot;e-il-coccodrillo&quot;&gt;E il coccodrillo?&lt;/h3&gt;
+&lt;p&gt;Riguardo i clients, fornite della roba ARM o MIPS che utilizza X over ethernet verso delle VM sul server; X11 funziona egregiamente in LAN, non molto in WAN. Qualora si dovesse scalare, SPICE ha fatto passi da gigante ed è abbastanza utilizzabile. Macchinette da 20 euro al pezzo, da rivendere a 150 con la grande O verde, stando ancora molto sotto quanto viene chiesto oggi per un thin client.&lt;/p&gt;
+
+&lt;p&gt;Per i servers: i dual socket commodity x86 con le features RAS vanno già benissimo per poter sostenere la “responsabilità operativa” di un’intera azienda di queste dimensioni, senza far casini con storage di rete e quant’altro, che su questa fascia di prezzo minerebbero l’affidabilità dell’insieme (lo spiegavo qualche post fa); nelle settore c’è fermento nonostante la commoditization, sono parecchi i vendors che sgomitano; Huawei, dice nulla?. Volendo, se la cosa dovesse scalare diversamente, si potrebbe portare tutto &lt;em&gt;già oggi&lt;/em&gt; su ARM o POWER senza salti mortali.&lt;/p&gt;
+
+&lt;h3 id=&quot;tutto-eo-niente&quot;&gt;Tutto E/O niente&lt;/h3&gt;
+&lt;p&gt;Bisogna fornire il rack &lt;strong&gt;completo&lt;/strong&gt;, già precablato e labelizzato (mezzo rack dovrebbe bastare per la maggior parte delle PMI), includendo il poco networking, un NAS per i backup in situ (più un altro in remoto, o comunque altrove, che replica gli snapshots delle VM); un paio di UPS correttamente dimensionati, magari anche filtrati; la soluzione è pensata per aziende che &lt;strong&gt;non hanno&lt;/strong&gt; un comparto IT, non vogliamo che il primo ingegnere elettronico di turno ci metta le mani, no? &lt;/p&gt;
+
+&lt;p&gt;Qualcosa che altri hanno già pensato di fare, ad esempio Dell con vStart e la stessa VMware con VCE, solamente a prezzi di un ordine di grandezza superiore. La differenza con questi giganti è la facilità di gestione per la PMI, che sarà molto scoraggiata dal mettere le mani su QEMU e combinar casini, piuttosto che farlo su HyperV o l’interfaccia web di vSphere; già, il minimalismo come baluardo, e contraltare degli infiniti databases, API e framework immensi che oggi si &lt;strong&gt;devono&lt;/strong&gt; usare anche per gestire installazioni su piccola scala.&lt;/p&gt;
+
+&lt;p&gt;Otteniamo così un sistema centralizzatISSIMO, sul quale si può fornire assistenza top-down, che consuma poco ed usa le risorse (storage locale, sistema scale UP) in modo intelligente (containers, VMs che condividono la stessa golden image, networking quasi tutto interno al singolo nodo), e può soddisfare il 99% delle esigenze delle PMI che partono da zero, o quasi. Nessun casino con malware &amp;amp;co. (SELINUX è tuo amico), nessun aggiornamento idiota che blocca l’operatività. &lt;/p&gt;
+
+&lt;p&gt;Qualora una VM client dovesse avere un problema, con le funzionalità standard di qualsiasi distro enterprise odierna è già possibile ricreare la macchina da un template (scriptato con Puppet ovviamente) in pochi SECONDI, da remoto con Mosh o SSH + DynDNS. Così, si può fornire assistenza remota senza mandare i sistemisti in situ anche sulla più misera delle ADSL (ho fatto esperienza pure sul 3G).
+Alla bisogna, si fornisce anche la possibilità di collegarsi a delle VM Windows, e ci si può anche sobbarcare la conversione dei vecchi documenti da formato “Office” a ODF.&lt;/p&gt;
+
+&lt;h3 id=&quot;ok-ma&quot;&gt;Ok, ma…&lt;/h3&gt;
+&lt;p&gt;Fornire tutto ciò in comodato d’uso, un TOT al mese, gestendo l’hardware usato (che così si può riutilizzare fino a “fine vita”) non è una banalità, ma mi sembra raggiungibile con le cifre lette nell’articolo, in due-tre anni. Sempre meglio che morire di fame rimarchiando tablet.
+È antiquato, sembra un ritorno ai vecchi AS400? Sì, esatto. &lt;strong&gt;CHE DIFATTI, FUNZIONAVANO.&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://francescoprovino.com/Olivetti/&quot;&gt;La grande O nel cielo&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;http://francescoprovino.com&quot;&gt;Francesco Provino&lt;/a&gt; su June 09, 2015.&lt;/p&gt;
+
+  </content>
+</entry>
 
 
   
