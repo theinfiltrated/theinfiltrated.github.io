@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://francescoprovino.com/feed.xml" />
 <link rel="alternate" type="text/html" href="http://francescoprovino.com" />
-<updated>2015-06-09T20:00:50+02:00</updated>
+<updated>2015-06-09T20:20:56+02:00</updated>
 <id>http://francescoprovino.com/</id>
 <author>
   <name>Francesco Provino</name>
@@ -36,7 +36,7 @@ Fategli sviluppare un sistema centralizzato “&lt;em&gt;All inclusive&lt;/em&gt
 
 &lt;h3 id=&quot;cosa-mettiamo-stasera-nel-minestrone&quot;&gt;Cosa mettiamo stasera nel minestrone.&lt;/h3&gt;
 &lt;p&gt;Virtualizzato, potente, veloce (già quattro HDD e una buona cache sanno il fatto loro, per 20 dipendenti), che può crescere insieme all’azienda; ci vuol nulla, deployando tutto come VM.
-Dentro mettetegli un fileserver, un mailserver, un proxy squid con che lavora in whitelisting per alcuni e in blacklisting per altri (ah, già vedo i sorrisi del CEO!), ammenicoli per la VPN/firewall, un sistema ERP come OpenBravo. Fateli testare ed integrare bene almeno un annetto… con tutto l’hardware che venderete al corredo, sopratutto il sottosistema di stampa e i POS; lì, avete tonnellate di know-how.&lt;/p&gt;
+Dentro mettetegli un fileserver, un mailserver, un proxy squid che lavora in whitelisting per alcuni e in blacklisting per altri (ah, già vedo i sorrisi del CEO!), ammenicoli per la VPN/firewall, un sistema ERP come OpenBravo. Fateli testare ed integrare bene almeno un annetto… con tutto l’hardware che venderete al corredo, sopratutto il sottosistema di stampa e i POS; lì, avete tonnellate di know-how.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Validate&lt;/strong&gt; le ultime incarnazioni di LibreOffice, magari anche con plugin proprietari per la conversione da ooXML (esistono eccome, e funzionano bene!), al resto pensa il motore LaTeX che gestisce l’output dall’ERP; niente rocket science, si tratta di scrivere un paio di parser da applicare a dei modelli, eventualmente personalizzabili.
 Assomiglia molto al lavoro di integration che spesso viene demandato ai sysadmin o ai dbadmin.&lt;/p&gt;
@@ -44,7 +44,7 @@ Assomiglia molto al lavoro di integration che spesso viene demandato ai sysadmin
 &lt;h3 id=&quot;e-il-coccodrillo&quot;&gt;E il coccodrillo?&lt;/h3&gt;
 &lt;p&gt;Riguardo i clients, fornite della roba ARM o MIPS che utilizza X over ethernet verso delle VM sul server; X11 funziona egregiamente in LAN, non molto in WAN. Qualora si dovesse scalare, SPICE ha fatto passi da gigante ed è abbastanza utilizzabile. Macchinette da 20 euro al pezzo, da rivendere a 150 con la grande O verde, stando ancora molto sotto quanto viene chiesto oggi per un thin client.&lt;/p&gt;
 
-&lt;p&gt;Per i servers: i dual socket commodity x86 con le features RAS vanno già benissimo per poter sostenere la “responsabilità operativa” di un’intera azienda di queste dimensioni, senza far casini con storage di rete e quant’altro, che su questa fascia di prezzo minerebbero l’affidabilità dell’insieme (lo spiegavo qualche post fa); nelle settore c’è fermento nonostante la commoditization, sono parecchi i vendors che sgomitano; Huawei, dice nulla?. Volendo, se la cosa dovesse scalare diversamente, si potrebbe portare tutto &lt;em&gt;già oggi&lt;/em&gt; su ARM o POWER senza salti mortali.&lt;/p&gt;
+&lt;p&gt;Per i servers: i dual socket commodity x86 con le features RAS vanno già benissimo per poter sostenere la “responsabilità operativa” di un’intera azienda di queste dimensioni, senza far casini con storage di rete e quant’altro, che su questa fascia di prezzo minerebbero l’affidabilità dell’insieme (lo spiegavo qualche post fa). Nel settore c’è fermento nonostante la commoditization, sono parecchi i vendors che sgomitano: Huawei, dice nulla?. Volendo, se la cosa dovesse scalare diversamente, si potrebbe portare tutto &lt;em&gt;già oggi&lt;/em&gt; su ARM o POWER senza salti mortali.&lt;/p&gt;
 
 &lt;h3 id=&quot;tutto-eo-niente&quot;&gt;Tutto E/O niente&lt;/h3&gt;
 &lt;p&gt;Bisogna fornire il rack &lt;strong&gt;completo&lt;/strong&gt;, già precablato e labelizzato (mezzo rack dovrebbe bastare per la maggior parte delle PMI), includendo il poco networking, un NAS per i backup in situ (più un altro in remoto, o comunque altrove, che replica gli snapshots delle VM); un paio di UPS correttamente dimensionati, magari anche filtrati; la soluzione è pensata per aziende che &lt;strong&gt;non hanno&lt;/strong&gt; un comparto IT, non vogliamo che il primo ingegnere elettronico di turno ci metta le mani, no? &lt;/p&gt;
@@ -57,8 +57,13 @@ Assomiglia molto al lavoro di integration che spesso viene demandato ai sysadmin
 Alla bisogna, si fornisce anche la possibilità di collegarsi a delle VM Windows, e ci si può anche sobbarcare la conversione dei vecchi documenti da formato “Office” a ODF.&lt;/p&gt;
 
 &lt;h3 id=&quot;ok-ma&quot;&gt;Ok, ma…&lt;/h3&gt;
-&lt;p&gt;Fornire tutto ciò in comodato d’uso, un TOT al mese, gestendo l’hardware usato (che così si può riutilizzare fino a “fine vita”) non è una banalità, ma mi sembra raggiungibile con le cifre lette nell’articolo, in due-tre anni. Sempre meglio che morire di fame rimarchiando tablet.
-È antiquato, sembra un ritorno ai vecchi AS400? Sì, esatto. &lt;strong&gt;CHE DIFATTI, FUNZIONAVANO.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Fornire tutto ciò in comodato d’uso, un TOT al mese, gestendo l’hardware usato (che così si può riutilizzare fino a “fine vita”) non è una banalità, ma mi sembra raggiungibile con le cifre lette nell’articolo, in due-tre anni. Sempre meglio che morire di fame rimarchiando tablet.&lt;/p&gt;
+
+&lt;p&gt;È antiquato, sembra un ritorno ai vecchi AS400? Sì, esatto. &lt;strong&gt;CHE DIFATTI, FUNZIONAVANO.&lt;/strong&gt;
+Vedo ovunque un grande bisogno di ritorno a soluzioni più “commensurabili”, comprensibili, architetturalmente meno articolate, e che nascondano meno la loro complessità; in una parola: &lt;em&gt;semplici&lt;/em&gt; anche se non necessariamente &lt;em&gt;facili&lt;/em&gt;… dove &lt;em&gt;facile&lt;/em&gt; che è un concetto relativo: vi sembra “facile” utilizzare Metro per task avanzati o metter su un cluster di active directory perché il database potrebbe corrompersi random in qualsiasi momento? Ma, &lt;strong&gt;sopratutto&lt;/strong&gt; dover dialogare con sistemi che dipendono in modo assolutamente vincolante dal buon funzionamento di DNS&amp;amp;co. (cosa abbastanza fragile), la cui gestione viene spesso affidata al primo santone di tutto che “sa installare Windows”, e questo anche per installazioni da una decina di postazioni?&lt;/p&gt;
+
+&lt;p&gt;Non credo che ci sia mai stato un momento più propizio per l’ingresso di una soluzione di questo tipo (Linux desktop e server, tutto virtualizzato a la “mainframe x86”), dati i pesanti colpi accusati da Microsoft ed un drammatico calo dei costi di storage e server di bassa gamma, insieme alla sostanziale scomparsa delle soluzioni prima denominate &lt;em&gt;midrange&lt;/em&gt; da questa fascia di mercato (ex system P, system i, AS400 ecc.).
+C’è parecchia fame a riguardo.&lt;/p&gt;
 
     &lt;p&gt;&lt;a href=&quot;http://francescoprovino.com/Olivetti/&quot;&gt;La grande O nel cielo&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;http://francescoprovino.com&quot;&gt;Francesco Provino&lt;/a&gt; su June 09, 2015.&lt;/p&gt;
 
