@@ -4,12 +4,12 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://francescoprovino.com/feed.xml" />
 <link rel="alternate" type="text/html" href="http://francescoprovino.com" />
-<updated>2015-06-09T20:24:36+02:00</updated>
+<updated>2015-07-29T18:17:57+02:00</updated>
 <id>http://francescoprovino.com/</id>
 <author>
   <name>Francesco Provino</name>
   <uri>http://francescoprovino.com/</uri>
-  
+  <email>me@francescoprovino.com</email>
 </author>
 
 
@@ -24,7 +24,7 @@
   <author>
     <name>Francesco Provino</name>
     <uri>http://francescoprovino.com</uri>
-    
+    <email>me@francescoprovino.com</email>
   </author>
   <content type="html">
     &lt;p&gt;Francamente? Io un’idea &lt;a href=&quot;http://www.ilfattoquotidiano.it/2015/06/08/olivetti-30-milioni-di-perdite-lanno-da-10-anni-poche-idee-e-tanti-esuberi/1748088/&quot;&gt;a riguardo&lt;/a&gt; cel’avrei.&lt;/p&gt;
@@ -83,7 +83,7 @@ Vedo ovunque un grande bisogno di ritorno a soluzioni più “commensurabili”,
   <author>
     <name>Francesco Provino</name>
     <uri>http://francescoprovino.com</uri>
-    
+    <email>me@francescoprovino.com</email>
   </author>
   <content type="html">
     &lt;p&gt;Le prime notizie relative al RAID risalgono alla fine degli anni ‘70, quando le macchine UNIX midrange iniziarono a dotarsi di quello che oggi chiameremmo “RAID Software”; prima c’erano solo sistemi per la correzione di errori in memoria, ma di tipo offline.&lt;/p&gt;
@@ -165,7 +165,7 @@ La battaglia si sta già svolgendo, specialmente fra gli algoritmi per il wear-l
   <author>
     <name>Francesco Provino</name>
     <uri>http://francescoprovino.com</uri>
-    
+    <email>me@francescoprovino.com</email>
   </author>
   <content type="html">
     &lt;p&gt;Si parlava ovunque della imminente scomparsa delle DSLR a favore delle mirrorless; passato l’hype (che aveva preso un po’ anche me, non lo nego) del mercato e dell’opinionista fotografico medio, possiamo inquadrare meglio il topic dal punto di vista dell’utilizzatore prosumer/professionale.
@@ -235,7 +235,7 @@ ottiche pro&lt;/em&gt;. La rigidezza è tutto.&lt;/li&gt;
   <author>
     <name>Francesco Provino</name>
     <uri>http://francescoprovino.com</uri>
-    
+    <email>me@francescoprovino.com</email>
   </author>
   <content type="html">
     &lt;p&gt;Quello dello storage non-consumer è sicuramente uno dei settori dell’IT più floridi per quanto riguarda la nascita di miti e leggende: cosa favorita, oltre dal marketing dei big players, dall’oggettiva complessità di alcuni concetti in gioco e dalla diffusa ignoranza degli uomini-IT in merito.&lt;/p&gt;
@@ -305,7 +305,7 @@ infrastruttura abbastanza ridondante, cosa che spesso si traduce in esborsi non 
   <author>
     <name>Francesco Provino</name>
     <uri>http://francescoprovino.com</uri>
-    
+    <email>me@francescoprovino.com</email>
   </author>
   <content type="html">
     &lt;p&gt;In questi giorni c’è stato tanto rumore mediatico riguardo alla violazione di account iCloud contenenti dati personali, e non sono mancate brecce in altri noti sistemi poco tempo addietro.&lt;/p&gt;

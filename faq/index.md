@@ -9,9 +9,6 @@ image:
   feature: fan.jpg
 ---
 
-#### Perché non fornisci la tua mail nel sito? C'è modo per contattarti?
-C'è troppo spam a questo mondo, rispetto a chi ha da dire qualcosa di interessante; comunque, se non sei un bot dovresti riuscire a trovare un modo per scrivermi senza troppe difficoltà (occhiolino alla J.J. Abrams).
-
 #### Voglio commentare un post, come faccio? Perché non ci sono i commenti?
 Verranno implementati a breve. Credo.
 
