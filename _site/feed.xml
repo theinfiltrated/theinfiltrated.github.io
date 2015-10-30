@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://francescoprovino.com/feed.xml" />
 <link rel="alternate" type="text/html" href="http://francescoprovino.com" />
-<updated>2015-10-30T18:01:30+01:00</updated>
+<updated>2015-10-30T18:05:12+01:00</updated>
 <id>http://francescoprovino.com/</id>
 <author>
   <name>Francesco Provino</name>
@@ -19,8 +19,8 @@
   <title type="html"><![CDATA[Perché usare distro enterprise?]]></title>
   <link rel="alternate" type="text/html" href="http://francescoprovino.com/distro_enterprise/" />
   <id>http://francescoprovino.com/distro_enterprise</id>
-  <published>2015-08-24T00:00:00+02:00</published>
-  <updated>2015-08-24T00:00:00+02:00</updated>
+  <published>2015-09-30T00:00:00+02:00</published>
+  <updated>2015-09-30T00:00:00+02:00</updated>
   <author>
     <name>Francesco Provino</name>
     <uri>http://francescoprovino.com</uri>
@@ -86,7 +86,7 @@ Se si resta sui repo standard, fatta salvo ovviamente una configurazione corrett
 
 &lt;p&gt;Ubuntu… sta guadagnando molta popolarità in installazione di OpenStack. Per il resto, la documentazione è poco affidabile/aggiornata/completa rispetto agli altri contenders, e la selezione del software spesso è fatta in modo scellerato, solamente per includere features consumer a scapito della stabilità; come si può includere un kernel &lt;strong&gt;NON&lt;/strong&gt; &lt;em&gt;lts&lt;/em&gt; in una release &lt;em&gt;lts&lt;/em&gt;?! Di contro, è molto aggiornata e alcuni progetti proposti da Canonical sono interessanti (penso a LXD), ma la consiglierei solamente se è impossibile raggiungere il vostro scopo utilizzando le altre due alternative.&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://francescoprovino.com/distro_enterprise/&quot;&gt;Perché usare distro enterprise?&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;http://francescoprovino.com&quot;&gt;Francesco Provino&lt;/a&gt; su August 24, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://francescoprovino.com/distro_enterprise/&quot;&gt;Perché usare distro enterprise?&lt;/a&gt; è stato originariamente pubblicato da Francesco Provino il &lt;a href=&quot;http://francescoprovino.com&quot;&gt;Francesco Provino&lt;/a&gt; su September 30, 2015.&lt;/p&gt;
 
   </content>
 </entry>
