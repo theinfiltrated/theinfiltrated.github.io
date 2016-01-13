@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://francescoprovino.com/NVMe-boot/</loc>
+    <lastmod>2015-11-05T00:00:00+01:00</lastmod>
+  </url>
+  <url>
     <loc>http://francescoprovino.com/distro_enterprise/</loc>
     <lastmod>2015-09-30T00:00:00+02:00</lastmod>
   </url>
@@ -31,9 +35,30 @@
     <loc>http://francescoprovino.com/</loc>
   </url>
   <url>
-    <loc>http://francescoprovino.com/posts/</loc>
-  </url>
-  <url>
     <loc>http://francescoprovino.com/about/</loc>
   </url>
+  <url>
+    <loc>http://francescoprovino.com/posts/</loc>
+  </url>
+    <url>
+      <loc>http://francescoprovino.com/git-faidate/</loc>
+    </url>
+    <url>
+      <loc>http://francescoprovino.com/enterprise-storage/</loc>
+    </url>
+    <url>
+      <loc>http://francescoprovino.com/why_dslr_arent_going_anywhere/</loc>
+    </url>
+    <url>
+      <loc>http://francescoprovino.com/The_birth_and_death_of_RAID/</loc>
+    </url>
+    <url>
+      <loc>http://francescoprovino.com/Olivetti/</loc>
+    </url>
+    <url>
+      <loc>http://francescoprovino.com/distro_enterprise/</loc>
+    </url>
+    <url>
+      <loc>http://francescoprovino.com/NVMe-boot/</loc>
+    </url>
 </urlset>
